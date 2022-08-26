@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        GeometryReader { (geometry) in
+            if (geometry.size.width > geometry.size.height) {
+                HStack {
+                    BoardView()
+                    HelloView()
+                }
+            } else {
+                VStack {
+                    BoardView()
+                    HelloView()
+                }
+            }
+            let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")
+        }
     }
 }
 

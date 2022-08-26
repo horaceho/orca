@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
+		F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
 		F52B193228B876B800887617 /* OrcaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192228B876B800887617 /* OrcaApp.swift */; };
 		F52B193328B876B800887617 /* OrcaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192228B876B800887617 /* OrcaApp.swift */; };
 		F52B193428B876B800887617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192328B876B800887617 /* ContentView.swift */; };
 		F52B193528B876B800887617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192328B876B800887617 /* ContentView.swift */; };
 		F52B193628B876B800887617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52B192428B876B800887617 /* Assets.xcassets */; };
 		F52B193728B876B800887617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52B192428B876B800887617 /* Assets.xcassets */; };
+		F52B194128B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
+		F52B194228B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F523AD2628B8C0F700054E1E /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		F52B192228B876B800887617 /* OrcaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcaApp.swift; sourceTree = "<group>"; };
 		F52B192328B876B800887617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F52B192428B876B800887617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F52B192928B876B800887617 /* Orca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52B192F28B876B800887617 /* Orca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52B193128B876B800887617 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		F52B194028B8794000887617 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 			children = (
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
+				F52B194028B8794000887617 /* BoardView.swift */,
+				F523AD2628B8C0F700054E1E /* HelloView.swift */,
 				F52B192428B876B800887617 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -176,6 +184,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52B194128B8794000887617 /* BoardView.swift in Sources */,
+				F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */,
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
 				F52B193228B876B800887617 /* OrcaApp.swift in Sources */,
 			);
@@ -185,6 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52B194228B8794000887617 /* BoardView.swift in Sources */,
+				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
 				F52B193328B876B800887617 /* OrcaApp.swift in Sources */,
 			);
