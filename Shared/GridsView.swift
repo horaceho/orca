@@ -39,7 +39,7 @@ struct GridsView: View {
                 path.addLine(to: CGPoint(x: gridSize, y: gridFull))
                 path.addLine(to: CGPoint(x: gridSize, y: gridSize))
             }
-            .stroke(Color.black, lineWidth: 2.5)
+            .stroke(Color.black, lineWidth: 3.0)
 
             Group {
                 Circle().position(x: (gridSize *  4.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
