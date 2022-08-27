@@ -43,18 +43,18 @@ struct GridsView: View {
 
             Group {
                 Circle().position(x: (gridSize *  4.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize *  4.0), y: (gridSize *  9.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize *  4.0), y: (gridSize * 15.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize *  4.0), y: (gridSize * 10.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize *  4.0), y: (gridSize * 16.0)).frame(width: 5.0, height: 5.0)
             }
             Group {
-                Circle().position(x: (gridSize *  9.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize *  9.0), y: (gridSize *  9.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize *  9.0), y: (gridSize * 15.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 10.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 10.0), y: (gridSize * 10.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 10.0), y: (gridSize * 16.0)).frame(width: 5.0, height: 5.0)
             }
             Group {
-                Circle().position(x: (gridSize * 15.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize * 15.0), y: (gridSize *  9.0)).frame(width: 5.0, height: 5.0)
-                Circle().position(x: (gridSize * 15.0), y: (gridSize * 15.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 16.0), y: (gridSize *  4.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 16.0), y: (gridSize * 10.0)).frame(width: 5.0, height: 5.0)
+                Circle().position(x: (gridSize * 16.0), y: (gridSize * 16.0)).frame(width: 5.0, height: 5.0)
             }
         }
     }

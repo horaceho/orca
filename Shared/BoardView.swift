@@ -16,10 +16,6 @@ struct BoardView: View {
 
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: gridSpace), count: boardSize)
 
-    private var symbols = ["plus", "circle.fill", "circle"]
-
-    private var colors: [Color] = [.yellow, .purple, .green, .brown, .blue, .pink, .gray, .white]
-
     var body: some View {
         GeometryReader { (geometry) in
             let fullSize = min(geometry.size.width, geometry.size.height)
@@ -54,9 +50,8 @@ struct BoardView: View {
                         }
                     LazyVGrid(columns: columns, spacing: gridSpace) {
                         ForEach(0..<361) { index in
-                            Image(systemName: symbols[match.stones[index]])
-                                .font(.system(size: gridSize-1.0))
-                                .opacity(match.stones[index] > 0 ? 1.0 : 0.01)
+                            Image(match.images[match.stones[index]])
+                                .resizable()
                                 .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
                                 .onTapGesture {
                                     match.click(index: index)
