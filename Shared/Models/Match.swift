@@ -8,9 +8,9 @@
 import SwiftUI
 
 class Match: ObservableObject {
-    @Published var count = 0
-    @Published var color = Orca.BLACK
-    @Published var always = Orca.TOGGLE
+    @Published var count: Int = 0
+    @Published var color: Int = Orca.BLACK
+    @Published var always: Int = Orca.TOGGLE
 
     @Published var size: Int = 19
 
@@ -44,6 +44,20 @@ class Match: ObservableObject {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 19
     ]
 
+    init() {
+        count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
+        color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
+        always = UserDefaults.standard.object(forKey: "Orca.always") as? Int ?? Orca.TOGGLE
+        stones = UserDefaults.standard.object(forKey: "Orca.stones") as? [Int] ?? Array(repeating: 0, count: 361)
+    }
+
+    func save() {
+        UserDefaults.standard.set(count, forKey: "Orca.count")
+        UserDefaults.standard.set(color, forKey: "Orca.color")
+        UserDefaults.standard.set(always, forKey: "Orca.always")
+        UserDefaults.standard.set(stones, forKey: "Orca.stones")
+    }
+
     func click(index: Int) {
         if (stones[index] == Orca.EMPTY) {
             stones[index] = color
@@ -53,6 +67,9 @@ class Match: ObservableObject {
         } else {
             stones[index] = Orca.EMPTY
         }
+
         count += 1
+
+        save()
     }
 }
