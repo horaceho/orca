@@ -122,6 +122,7 @@
       "size" : "128x128"
     },
     {
+      "filename" : "Orca-256-macos.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
@@ -132,16 +133,19 @@
       "size" : "256x256"
     },
     {
+      "filename" : "Orca-512-macos.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "Orca-512-macos-store.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "Orca-1024-macos-store.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

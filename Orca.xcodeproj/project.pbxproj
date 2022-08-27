@@ -17,6 +17,7 @@
 		F52B193728B876B800887617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52B192428B876B800887617 /* Assets.xcassets */; };
 		F52B194128B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
 		F52B194228B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
+		F5C55CE328B9F2290099413E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F5C55CE228B9F2290099413E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F52B192F28B876B800887617 /* Orca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52B193128B876B800887617 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F52B194028B8794000887617 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		F52B191C28B876B800887617 = {
 			isa = PBXGroup;
 			children = (
+				F5C55CE228B9F2290099413E /* README.md */,
 				F52B192128B876B800887617 /* Shared */,
 				F52B193028B876B800887617 /* macOS */,
 				F52B192A28B876B800887617 /* Products */,
@@ -165,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C55CE328B9F2290099413E /* README.md in Resources */,
 				F52B193628B876B800887617 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
