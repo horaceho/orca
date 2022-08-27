@@ -18,6 +18,10 @@
 		F52B194128B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
 		F52B194228B8794000887617 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* BoardView.swift */; };
 		F5C55CE328B9F2290099413E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F5C55CE228B9F2290099413E /* README.md */; };
+		F5C55CE528B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
+		F5C55CE628B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
+		F5C55CE928BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
+		F5C55CEA28BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,8 @@
 		F52B193128B876B800887617 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F52B194028B8794000887617 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 		F52B192128B876B800887617 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F5C55CE728B9F9270099413E /* Models */,
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
 				F52B194028B8794000887617 /* BoardView.swift */,
@@ -87,6 +94,15 @@
 				F52B193128B876B800887617 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		F5C55CE728B9F9270099413E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5C55CE428B9F8CB0099413E /* Match.swift */,
+				F5C55CE828BA07A90099413E /* Orca.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +206,9 @@
 			files = (
 				F52B194128B8794000887617 /* BoardView.swift in Sources */,
 				F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */,
+				F5C55CE928BA07A90099413E /* Orca.swift in Sources */,
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
+				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
 				F52B193228B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +219,9 @@
 			files = (
 				F52B194228B8794000887617 /* BoardView.swift in Sources */,
 				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
+				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
+				F5C55CE628B9F8CB0099413E /* Match.swift in Sources */,
 				F52B193328B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

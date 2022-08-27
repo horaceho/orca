@@ -11,31 +11,8 @@ let boardSize: Int = 19
 let gridCount: Int = 361
 let gridSpace: CGFloat = 0.0
 
-var stones: [Int] = // Array(repeating: 0, count: 361)
-[
-//  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  2
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, //  3
-    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  4
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  5
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  6
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  7
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  8
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  9
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 10
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 12
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 13
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, // 14
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 15
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, // 16
-    0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, // 17
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 18
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 19
-]
-
 struct BoardView: View {
+    @EnvironmentObject var match: Match
 
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: gridSpace), count: boardSize)
 
@@ -48,30 +25,61 @@ struct BoardView: View {
             let fullSize = min(geometry.size.width, geometry.size.height)
             let gridSize = fullSize / 20.0;
             let halfGrid = gridSize / 2.0;
+
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    Rectangle().fill(.yellow).frame(width: halfGrid, height: halfGrid)
+                    Rectangle()
+                        .fill(.yellow)
+                        .frame(width: halfGrid, height: halfGrid)
                     Rectangle().fill(.orange).frame(width: gridSize * 19.0, height: halfGrid)
-                    Rectangle().fill(.yellow).frame(width: halfGrid, height: halfGrid)
+                        .onTapGesture {
+                            print("Horizontal Tapped \(match.count)");
+                        }
+                    Rectangle()
+                        .fill(.yellow)
+                        .frame(width: halfGrid, height: halfGrid)
                 }
                 HStack(spacing: 0) {
-                    Rectangle().fill(.orange).frame(width: halfGrid, height: gridSize * 19.0)
+                    Rectangle()
+                        .fill(.orange)
+                        .frame(width: halfGrid, height: gridSize * 19.0)
+                        .onTapGesture {
+                            print("Vertical Tapped \(match.count)");
+                        }
                     LazyVGrid(columns: columns, spacing: gridSpace) {
                         ForEach(0..<361) { index in
-                            Image(systemName: symbols[stones[index]])
+                            Image(systemName: symbols[match.stones[index]])
                                 .font(.system(size: gridSize-1.0))
-                                .opacity(stones[index] > 0 ? 1.0 : 0.05)
+                                .opacity(match.stones[index] > 0 ? 1.0 : 0.05)
                                 .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
+                                .onTapGesture {
+                                    match.click(index: index)
+                                    print("Board Tapped \(index)");
+                                }
                         }
                     }.frame(width: fullSize-gridSize, height: fullSize-gridSize, alignment: .center)
-                    Rectangle().fill(.orange).frame(width: halfGrid, height: gridSize * 19.0)
+                    Rectangle()
+                        .fill(.orange)
+                        .frame(width: halfGrid, height: gridSize * 19.0)
+                        .onTapGesture {
+                            print("Vertical Tapped \(match.count)");
+                        }
                 }
                 HStack(spacing: 0) {
-                    Rectangle().fill(.yellow).frame(width: halfGrid, height: halfGrid)
+                    Rectangle()
+                        .fill(.yellow)
+                        .frame(width: halfGrid, height: halfGrid)
                     Rectangle().fill(.orange).frame(width: gridSize * 19.0, height: halfGrid)
-                    Rectangle().fill(.yellow).frame(width: halfGrid, height: halfGrid)
+                        .onTapGesture {
+                            print("Horizontal Tapped \(match.count)");
+                        }
+                    Rectangle()
+                        .fill(.yellow)
+                        .frame(width: halfGrid, height: halfGrid)
                 }
             }
+        }.onTapGesture {
+            print("Outer Tapped \(match.count)");
         }
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var match = Match()
+
     var body: some View {
         GeometryReader { (geometry) in
             if (geometry.size.width > geometry.size.height) {
@@ -22,12 +24,12 @@ struct ContentView: View {
                 }
             }
             let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")
-        }
+        }.environmentObject(match)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(Match())
     }
 }

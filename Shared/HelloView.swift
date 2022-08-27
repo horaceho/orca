@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct HelloView: View {
+    @EnvironmentObject var match: Match
+
     var body: some View {
         VStack {
             Text("Hello, Orca!")
                 .font(.title)
-            Text("I am your friend.")
+            Text("Count \(match.count)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }.padding()
