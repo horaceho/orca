@@ -12,6 +12,8 @@ class Match: ObservableObject {
     @Published var color = Orca.BLACK
     @Published var always = Orca.TOGGLE
 
+    @Published var size: Int = 19
+
     @Published var stones: [Int] = // Array(repeating: 0, count: 361)
     [
     //  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19

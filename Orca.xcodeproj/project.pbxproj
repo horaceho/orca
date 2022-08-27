@@ -22,6 +22,8 @@
 		F5C55CE628B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE928BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
 		F5C55CEA28BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
+		F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
+		F5C55CED28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
+		F5C55CEB28BA0F910099413E /* GridsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
 				F52B194028B8794000887617 /* BoardView.swift */,
+				F5C55CEB28BA0F910099413E /* GridsView.swift */,
 				F523AD2628B8C0F700054E1E /* HelloView.swift */,
 				F52B192428B876B800887617 /* Assets.xcassets */,
 			);
@@ -209,6 +213,7 @@
 				F5C55CE928BA07A90099413E /* Orca.swift in Sources */,
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
+				F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */,
 				F52B193228B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +227,7 @@
 				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE628B9F8CB0099413E /* Match.swift in Sources */,
+				F5C55CED28BA0F910099413E /* GridsView.swift in Sources */,
 				F52B193328B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

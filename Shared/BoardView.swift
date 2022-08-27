@@ -30,18 +30,24 @@ struct BoardView: View {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.yellow)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: halfGrid)
-                    Rectangle().fill(.orange).frame(width: gridSize * 19.0, height: halfGrid)
+                    Rectangle()
+                        .fill(.orange)
+                        .opacity(0.1)
+                        .frame(width: gridSize * 19.0, height: halfGrid)
                         .onTapGesture {
                             print("Horizontal Tapped \(match.count)");
                         }
                     Rectangle()
                         .fill(.yellow)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: halfGrid)
                 }
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.orange)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: gridSize * 19.0)
                         .onTapGesture {
                             print("Vertical Tapped \(match.count)");
@@ -50,7 +56,7 @@ struct BoardView: View {
                         ForEach(0..<361) { index in
                             Image(systemName: symbols[match.stones[index]])
                                 .font(.system(size: gridSize-1.0))
-                                .opacity(match.stones[index] > 0 ? 1.0 : 0.05)
+                                .opacity(match.stones[index] > 0 ? 1.0 : 0.01)
                                 .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
                                 .onTapGesture {
                                     match.click(index: index)
@@ -60,6 +66,7 @@ struct BoardView: View {
                     }.frame(width: fullSize-gridSize, height: fullSize-gridSize, alignment: .center)
                     Rectangle()
                         .fill(.orange)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: gridSize * 19.0)
                         .onTapGesture {
                             print("Vertical Tapped \(match.count)");
@@ -68,13 +75,18 @@ struct BoardView: View {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.yellow)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: halfGrid)
-                    Rectangle().fill(.orange).frame(width: gridSize * 19.0, height: halfGrid)
+                    Rectangle()
+                        .fill(.orange)
+                        .opacity(0.1)
+                        .frame(width: gridSize * 19.0, height: halfGrid)
                         .onTapGesture {
                             print("Horizontal Tapped \(match.count)");
                         }
                     Rectangle()
                         .fill(.yellow)
+                        .opacity(0.1)
                         .frame(width: halfGrid, height: halfGrid)
                 }
             }
@@ -87,6 +99,7 @@ struct BoardView: View {
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
         BoardView()
+            .environmentObject(Match())
             .previewInterfaceOrientation(.portrait)
     }
 }

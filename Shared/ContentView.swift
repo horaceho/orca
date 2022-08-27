@@ -14,12 +14,18 @@ struct ContentView: View {
         GeometryReader { (geometry) in
             if (geometry.size.width > geometry.size.height) {
                 HStack {
-                    BoardView()
+                    ZStack {
+                        GridsView()
+                        BoardView()
+                    }
                     HelloView()
                 }
             } else {
                 VStack {
-                    BoardView()
+                    ZStack {
+                        GridsView()
+                        BoardView()
+                    }
                     HelloView()
                 }
             }
