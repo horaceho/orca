@@ -17,16 +17,24 @@ struct ContentView: View {
                     ZStack {
                         GridsView()
                         BoardView()
+                    }.frame(maxWidth: geometry.size.height, maxHeight:geometry.size.height)
+                    Spacer()
+                    VStack() {
+                        HelloView()
+                        Spacer()
+                        NavigationView()
                     }
-                    HelloView()
+                    Spacer()
                 }
             } else {
                 VStack {
                     ZStack {
                         GridsView()
                         BoardView()
-                    }
+                    }.frame(maxWidth: geometry.size.width, maxHeight:geometry.size.width)
                     HelloView()
+                    Spacer()
+                    NavigationView()
                 }
             }
             let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")
@@ -36,6 +44,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(Match())
+        ContentView().environmentObject(Match()).previewInterfaceOrientation(.portrait)
     }
 }

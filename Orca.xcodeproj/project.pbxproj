@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F518676C28BB0370008C3D2F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676B28BB0370008C3D2F /* NavigationView.swift */; };
+		F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676B28BB0370008C3D2F /* NavigationView.swift */; };
 		F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
 		F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
 		F52B193228B876B800887617 /* OrcaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192228B876B800887617 /* OrcaApp.swift */; };
@@ -27,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F518676B28BB0370008C3D2F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		F523AD2628B8C0F700054E1E /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		F52B192228B876B800887617 /* OrcaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcaApp.swift; sourceTree = "<group>"; };
 		F52B192328B876B800887617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F518676E28BB16F2008C3D2F /* Bars */ = {
+			isa = PBXGroup;
+			children = (
+				F518676B28BB0370008C3D2F /* NavigationView.swift */,
+			);
+			path = Bars;
+			sourceTree = "<group>";
+		};
 		F52B191C28B876B800887617 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +83,7 @@
 		F52B192128B876B800887617 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F518676E28BB16F2008C3D2F /* Bars */,
 				F5C55CE728B9F9270099413E /* Models */,
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
@@ -210,6 +222,7 @@
 			files = (
 				F52B194128B8794000887617 /* BoardView.swift in Sources */,
 				F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */,
+				F518676C28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CE928BA07A90099413E /* Orca.swift in Sources */,
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
@@ -224,6 +237,7 @@
 			files = (
 				F52B194228B8794000887617 /* BoardView.swift in Sources */,
 				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
+				F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE628B9F8CB0099413E /* Match.swift in Sources */,

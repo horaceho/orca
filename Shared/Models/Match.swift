@@ -72,4 +72,12 @@ class Match: ObservableObject {
 
         save()
     }
+
+    func turnImageName() -> String {
+        if (always == Orca.TOGGLE) {
+            return color == Orca.BLACK ? "circle.lefthalf.filled" : "circle.righthalf.filled"
+        } else {
+            return color == Orca.BLACK ? "circle.filled" : "circle"
+        }
+    }
 }
