@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F518676C28BB0370008C3D2F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676B28BB0370008C3D2F /* NavigationView.swift */; };
 		F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676B28BB0370008C3D2F /* NavigationView.swift */; };
+		F518677028BB17CB008C3D2F /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676F28BB17CB008C3D2F /* ControlView.swift */; };
+		F518677128BB17CB008C3D2F /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F518676F28BB17CB008C3D2F /* ControlView.swift */; };
 		F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
 		F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523AD2628B8C0F700054E1E /* HelloView.swift */; };
 		F52B193228B876B800887617 /* OrcaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B192228B876B800887617 /* OrcaApp.swift */; };
@@ -30,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		F518676B28BB0370008C3D2F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		F518676F28BB17CB008C3D2F /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		F523AD2628B8C0F700054E1E /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		F52B192228B876B800887617 /* OrcaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcaApp.swift; sourceTree = "<group>"; };
 		F52B192328B876B800887617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				F518676B28BB0370008C3D2F /* NavigationView.swift */,
+				F518676F28BB17CB008C3D2F /* ControlView.swift */,
 			);
 			path = Bars;
 			sourceTree = "<group>";
@@ -227,6 +231,7 @@
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
 				F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */,
+				F518677028BB17CB008C3D2F /* ControlView.swift in Sources */,
 				F52B193228B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +247,7 @@
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
 				F5C55CE628B9F8CB0099413E /* Match.swift in Sources */,
 				F5C55CED28BA0F910099413E /* GridsView.swift in Sources */,
+				F518677128BB17CB008C3D2F /* ControlView.swift in Sources */,
 				F52B193328B876B800887617 /* OrcaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

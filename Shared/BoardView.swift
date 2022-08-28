@@ -54,8 +54,7 @@ struct BoardView: View {
                                 .resizable()
                                 .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
                                 .onTapGesture {
-                                    match.click(index: index)
-                                    print("Board Tapped \(index)");
+                                    match.clickStone(index: index)
                                 }
                         }
                     }.frame(width: fullSize-gridSize, height: fullSize-gridSize, alignment: .center)

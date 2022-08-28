@@ -22,7 +22,7 @@ struct ContentView: View {
                     VStack() {
                         HelloView()
                         Spacer()
-                        NavigationView()
+                        ControlView()
                     }
                     Spacer()
                 }
@@ -34,7 +34,7 @@ struct ContentView: View {
                     }.frame(maxWidth: geometry.size.width, maxHeight:geometry.size.width)
                     HelloView()
                     Spacer()
-                    NavigationView()
+                    ControlView()
                 }
             }
             let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")

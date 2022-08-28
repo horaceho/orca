@@ -9,8 +9,9 @@ import SwiftUI
 
 class Match: ObservableObject {
     @Published var count: Int = 0
+    @Published var trash: Int = 0
     @Published var color: Int = Orca.BLACK
-    @Published var always: Int = Orca.TOGGLE
+    @Published var turns: Int = Orca.TOGGLE
 
     @Published var size: Int = 19
 
@@ -47,21 +48,28 @@ class Match: ObservableObject {
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
         color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
-        always = UserDefaults.standard.object(forKey: "Orca.always") as? Int ?? Orca.TOGGLE
+        turns = UserDefaults.standard.object(forKey: "Orca.turns") as? Int ?? Orca.TOGGLE
         stones = UserDefaults.standard.object(forKey: "Orca.stones") as? [Int] ?? Array(repeating: 0, count: 361)
     }
 
     func save() {
         UserDefaults.standard.set(count, forKey: "Orca.count")
         UserDefaults.standard.set(color, forKey: "Orca.color")
-        UserDefaults.standard.set(always, forKey: "Orca.always")
+        UserDefaults.standard.set(turns, forKey: "Orca.turns")
         UserDefaults.standard.set(stones, forKey: "Orca.stones")
     }
 
-    func click(index: Int) {
+    func reset() {
+        count = 0
+        color = Orca.BLACK
+        turns = Orca.TOGGLE
+        stones = Array(repeating: 0, count: 361)
+    }
+
+    func clickStone(index: Int) {
         if (stones[index] == Orca.EMPTY) {
             stones[index] = color
-            if (always == Orca.TOGGLE) {
+            if (turns == Orca.TOGGLE) {
                 color = (color == Orca.BLACK) ? Orca.WHITE : Orca.BLACK
             }
         } else {
@@ -69,12 +77,25 @@ class Match: ObservableObject {
         }
 
         count += 1
-
         save()
     }
 
+    func clickTrash() {
+        if (trash > 0) {
+            reset()
+            save()
+            trash = 0
+        } else {
+            trash += 1
+        }
+    }
+
+    func trashRole() -> ButtonRole? {
+        return trash == 1 ? .destructive : .none
+    }
+
     func turnImageName() -> String {
-        if (always == Orca.TOGGLE) {
+        if (turns == Orca.TOGGLE) {
             return color == Orca.BLACK ? "circle.lefthalf.filled" : "circle.righthalf.filled"
         } else {
             return color == Orca.BLACK ? "circle.filled" : "circle"
