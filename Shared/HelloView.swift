@@ -14,7 +14,7 @@ struct HelloView: View {
         VStack {
             Text("Hello, Orca!")
                 .font(.title)
-            Text("Count \(match.count)")
+            Text("Clicks \(match.clicks.count) B \(match.blackDead) W \(match.whiteDead)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }.padding()

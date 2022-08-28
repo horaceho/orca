@@ -45,11 +45,19 @@ class Match: ObservableObject {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 19
     ]
 
+    @Published var clicks: [Int] = []
+
+    @Published var blackDead: Int = 0
+    @Published var whiteDead: Int = 0
+
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
         color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
         turns = UserDefaults.standard.object(forKey: "Orca.turns") as? Int ?? Orca.TOGGLE
         stones = UserDefaults.standard.object(forKey: "Orca.stones") as? [Int] ?? Array(repeating: 0, count: 361)
+        clicks = UserDefaults.standard.object(forKey: "Orca.clicks") as? [Int] ?? []
+        blackDead = UserDefaults.standard.object(forKey: "Orca.blackDead") as? Int ?? 0
+        whiteDead = UserDefaults.standard.object(forKey: "Orca.whiteDead") as? Int ?? 0
     }
 
     func save() {
@@ -57,27 +65,62 @@ class Match: ObservableObject {
         UserDefaults.standard.set(color, forKey: "Orca.color")
         UserDefaults.standard.set(turns, forKey: "Orca.turns")
         UserDefaults.standard.set(stones, forKey: "Orca.stones")
+        UserDefaults.standard.set(blackDead, forKey: "Orca.blackDead")
+        UserDefaults.standard.set(whiteDead, forKey: "Orca.whiteDead")
+    }
+
+    func clear() {
+        color = Orca.BLACK
+        turns = Orca.TOGGLE
+        stones = Array(repeating: 0, count: 361)
+        blackDead = 0
+        whiteDead = 0
     }
 
     func reset() {
         count = 0
-        color = Orca.BLACK
-        turns = Orca.TOGGLE
-        stones = Array(repeating: 0, count: 361)
+        clear()
+        clicks.removeAll()
     }
 
-    func clickStone(index: Int) {
+    func click(index: Int) {
         if (stones[index] == Orca.EMPTY) {
             stones[index] = color
             if (turns == Orca.TOGGLE) {
                 color = (color == Orca.BLACK) ? Orca.WHITE : Orca.BLACK
             }
         } else {
+            if (stones[index] == Orca.BLACK) {
+                blackDead += 1
+            }
+            if (stones[index] == Orca.WHITE) {
+                whiteDead += 1
+            }
             stones[index] = Orca.EMPTY
         }
+    }
 
+    func clickStone(index: Int) {
+        click(index: index)
+        clicks.append(index)
         count += 1
         save()
+    }
+
+    func clickDelete() {
+        if (trash > 0) {
+            trash = 0
+            return
+        }
+
+        if (clicks.count > 0) {
+            clicks.removeLast()
+            clear()
+            for index in clicks {
+                click(index: index)
+            }
+            save()
+        }
     }
 
     func clickTrash() {

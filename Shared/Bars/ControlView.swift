@@ -25,7 +25,7 @@ struct ControlView: View {
                 Image(systemName: "brain.head.profile")
             }.padding(.horizontal)
             Button(role: .none, action: {
-                // ...
+                match.clickDelete()
             }) {
                 Image(systemName: "delete.left")
             }.padding(.horizontal)
