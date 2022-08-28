@@ -26,24 +26,24 @@ struct BoardView: View {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.yellow)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: halfGrid)
                     Rectangle()
                         .fill(.orange)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: gridSize * 19.0, height: halfGrid)
                         .onTapGesture {
                             print("Horizontal Tapped \(match.count)");
                         }
                     Rectangle()
                         .fill(.yellow)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: halfGrid)
                 }
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.orange)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: gridSize * 19.0)
                         .onTapGesture {
                             print("Vertical Tapped \(match.count)");
@@ -60,7 +60,7 @@ struct BoardView: View {
                     }.frame(width: fullSize-gridSize, height: fullSize-gridSize, alignment: .center)
                     Rectangle()
                         .fill(.orange)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: gridSize * 19.0)
                         .onTapGesture {
                             print("Vertical Tapped \(match.count)");
@@ -69,18 +69,18 @@ struct BoardView: View {
                 HStack(spacing: 0) {
                     Rectangle()
                         .fill(.yellow)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: halfGrid)
                     Rectangle()
                         .fill(.orange)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: gridSize * 19.0, height: halfGrid)
                         .onTapGesture {
                             print("Horizontal Tapped \(match.count)");
                         }
                     Rectangle()
                         .fill(.yellow)
-                        .opacity(0.1)
+                        .opacity(0.0)
                         .frame(width: halfGrid, height: halfGrid)
                 }
             }

@@ -12,6 +12,7 @@ struct OrcaApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .accentColor(.gray)
         }
     }
 }
