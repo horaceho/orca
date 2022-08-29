@@ -15,8 +15,9 @@ struct ContentView: View {
             if (geometry.size.width > geometry.size.height) {
                 HStack {
                     ZStack {
-                        GridsView()
                         BoardView()
+                     // GridsView()
+                        StoneView()
                     }.frame(maxWidth: geometry.size.height, maxHeight:geometry.size.height)
                     Spacer()
                     VStack() {
@@ -29,8 +30,9 @@ struct ContentView: View {
             } else {
                 VStack {
                     ZStack {
-                        GridsView()
                         BoardView()
+                     // GridsView()
+                        StoneView()
                     }.frame(maxWidth: geometry.size.width, maxHeight:geometry.size.width)
                     HelloView()
                     Spacer()
