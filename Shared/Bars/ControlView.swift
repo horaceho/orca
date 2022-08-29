@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ControlView: View {
     @EnvironmentObject var match: Match
+    @State private var showConfig = false
 
     var body: some View {
         HStack {
@@ -34,10 +35,13 @@ struct ControlView: View {
                 Image(systemName: "icloud")
             }.padding(.horizontal)
             Button(role: .none, action: {
-                // ...
+                showConfig = true
             }) {
-                Image(systemName: "square.and.arrow.up")
+                Image(systemName: "gearshape")
             }.padding(.horizontal)
+                .popover(isPresented: $showConfig) {
+                    ConfigView()
+                }
             Button(role: match.trashRole(), action: {
                 match.clickTrash()
             }) {

@@ -10,6 +10,7 @@ import SwiftUI
 class Match: ObservableObject {
     @Published var count: Int = 0
     @Published var trash: Int = 0
+    @Published var board: Int = 0
     @Published var color: Int = Orca.BLACK
     @Published var turns: Int = Orca.TOGGLE
 
@@ -22,8 +23,8 @@ class Match: ObservableObject {
     ]
 
     @Published var boards: [String] = [
-        "Board-Lighter",
         "Board-Darker",
+        "Board-Lighter",
     ]
 
     @Published var stones: [Int] = // Array(repeating: 0, count: 361)
@@ -54,9 +55,11 @@ class Match: ObservableObject {
 
     @Published var blackDead: Int = 0
     @Published var whiteDead: Int = 0
+//    @Published var boardImage: String = "Board-Lighter"
 
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
+        board = UserDefaults.standard.object(forKey: "Orca.board") as? Int ?? 0
         color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
         turns = UserDefaults.standard.object(forKey: "Orca.turns") as? Int ?? Orca.TOGGLE
         stones = UserDefaults.standard.object(forKey: "Orca.stones") as? [Int] ?? Array(repeating: 0, count: 361)
@@ -105,6 +108,11 @@ class Match: ObservableObject {
         }
     }
 
+    func clickBoard(index: Int) {
+        board = index
+        UserDefaults.standard.set(board, forKey: "Orca.board")
+    }
+
     func clickStone(index: Int) {
         click(index: index)
         clicks.append(index)
@@ -151,6 +159,6 @@ class Match: ObservableObject {
     }
 
     func boardImage() -> String {
-        return boards[0]
+        return boards[board]
     }
 }
