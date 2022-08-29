@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Goban-540x540.png",
+      "filename" : "Goban-540x540-B.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Goban-1080x1080.png",
+      "filename" : "Goban-1080x1080-B.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

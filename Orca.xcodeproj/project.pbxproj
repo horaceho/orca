@@ -23,6 +23,8 @@
 		F52B194228B8794000887617 /* StoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52B194028B8794000887617 /* StoneView.swift */; };
 		F52E99FA28BC656C007B707E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E99F928BC656C007B707E /* BoardView.swift */; };
 		F52E99FB28BC656C007B707E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E99F928BC656C007B707E /* BoardView.swift */; };
+		F52E99FD28BC9D0F007B707E /* ClickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E99FC28BC9D0F007B707E /* ClickView.swift */; };
+		F52E99FE28BC9D0F007B707E /* ClickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E99FC28BC9D0F007B707E /* ClickView.swift */; };
 		F5C55CE328B9F2290099413E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F5C55CE228B9F2290099413E /* README.md */; };
 		F5C55CE528B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE628B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
@@ -44,6 +46,7 @@
 		F52B193128B876B800887617 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F52B194028B8794000887617 /* StoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneView.swift; sourceTree = "<group>"; };
 		F52E99F928BC656C007B707E /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		F52E99FC28BC9D0F007B707E /* ClickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickView.swift; sourceTree = "<group>"; };
 		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
 				F52E99F928BC656C007B707E /* BoardView.swift */,
+				F52E99FC28BC9D0F007B707E /* ClickView.swift */,
 				F5C55CEB28BA0F910099413E /* GridsView.swift */,
 				F52B194028B8794000887617 /* StoneView.swift */,
 				F523AD2628B8C0F700054E1E /* HelloView.swift */,
@@ -229,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52B194128B8794000887617 /* StoneView.swift in Sources */,
+				F52E99FD28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F523AD2728B8C0F700054E1E /* HelloView.swift in Sources */,
 				F518676C28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CE928BA07A90099413E /* Orca.swift in Sources */,
@@ -246,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52B194228B8794000887617 /* StoneView.swift in Sources */,
+				F52E99FE28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
 				F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,

@@ -17,7 +17,6 @@ struct ControlView: View {
             }) {
                 Image(systemName: match.turnImageName())
                     .imageScale(.large)
-                    .foregroundColor(.black)
             }.padding(.horizontal)
             Button(role: .none, action: {
                 // ...
@@ -25,9 +24,9 @@ struct ControlView: View {
                 Image(systemName: "brain.head.profile")
             }.padding(.horizontal)
             Button(role: .none, action: {
-                match.clickDelete()
+             // match.clickDelete()
             }) {
-                Image(systemName: "delete.left")
+                Image(systemName: "number")
             }.padding(.horizontal)
             Button(role: .none, action: {
                 // ...

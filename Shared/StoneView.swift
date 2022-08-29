@@ -55,7 +55,6 @@ struct StoneView: View {
                                 .shadow(color: .black.opacity(0.5), radius: 1.75, x: -1.5, y: 1.25)
                                 .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
                                 .onTapGesture {
-                                    print("gridSize \(gridSize)")
                                     match.clickStone(index: index)
                                 }
                         }
