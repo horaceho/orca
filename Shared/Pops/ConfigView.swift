@@ -20,7 +20,7 @@ struct ConfigView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .border(.gray.opacity(match.board == 0 ? 100.0 : 0.0), width: 2)
-                }.padding(2)
+                }.padding(3)
                 Button(role: .none, action: {
                     match.clickBoard(index: 1)
                 }) {
@@ -28,10 +28,10 @@ struct ConfigView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .border(.gray.opacity(match.board == 1 ? 100.0 : 0.0), width: 2)
-                }.padding(2)
+                }.padding(3)
             }.padding()
             Spacer()
-        }.frame(width: 480)
+        }
     }
 }
 
