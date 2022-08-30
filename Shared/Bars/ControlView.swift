@@ -10,6 +10,7 @@ import SwiftUI
 struct ControlView: View {
     @EnvironmentObject var match: Match
     @State private var showConfig = false
+    @State private var showCloud = false
 
     var body: some View {
         HStack {
@@ -30,10 +31,13 @@ struct ControlView: View {
                 Image(systemName: "number")
             }.padding(.horizontal)
             Button(role: .none, action: {
-                // ...
+                showCloud = true
             }) {
                 Image(systemName: "icloud")
             }.padding(.horizontal)
+                .popover(isPresented: $showCloud) {
+                    DropboxView()
+                }
             Button(role: .none, action: {
                 showConfig = true
             }) {
