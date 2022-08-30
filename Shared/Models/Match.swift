@@ -153,6 +153,12 @@ class Match: ObservableObject {
             trash = 0
         } else {
             trash += 1
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                if (self.trash > 0) {
+                    self.trash = 0
+                }
+            }
         }
     }
 
