@@ -74,6 +74,7 @@ class Match: ObservableObject {
         UserDefaults.standard.set(color, forKey: "Orca.color")
         UserDefaults.standard.set(turns, forKey: "Orca.turns")
         UserDefaults.standard.set(stones, forKey: "Orca.stones")
+        UserDefaults.standard.set(clicks, forKey: "Orca.clicks")
         UserDefaults.standard.set(blackDead, forKey: "Orca.blackDead")
         UserDefaults.standard.set(whiteDead, forKey: "Orca.whiteDead")
     }
@@ -131,11 +132,6 @@ class Match: ObservableObject {
     }
 
     func clickDelete() {
-        if (trash > 0) {
-            trash = 0
-            return
-        }
-
         if (clicks.count > 0) {
             clicks.removeLast()
             clear()
