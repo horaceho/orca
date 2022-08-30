@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ConfigView: View {
+    @Binding var showConfig: Bool
     @EnvironmentObject var match: Match
 
     var body: some View {
@@ -31,13 +32,19 @@ struct ConfigView: View {
                 }.padding(3)
             }.padding()
             Spacer()
-        }
+            Button(role: .none, action: {
+                showConfig = false
+            }) {
+                Image(systemName: "arrow.uturn.backward.circle")
+                    .imageScale(.large)
+            }.padding()
+        }.frame(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height))
     }
 }
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigView()
+        ConfigView(showConfig: .constant(true))
             .environmentObject(Match())
     }
 }

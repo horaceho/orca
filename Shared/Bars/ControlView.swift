@@ -40,7 +40,7 @@ struct ControlView: View {
                 Image(systemName: "gearshape")
             }.padding(.horizontal)
                 .popover(isPresented: $showConfig) {
-                    ConfigView()
+                    ConfigView(showConfig: $showConfig)
                 }
             Button(role: match.trashRole(), action: {
                 match.clickTrash()
