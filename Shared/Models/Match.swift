@@ -11,6 +11,7 @@ class Match: ObservableObject {
     @Published var count: Int = 0
     @Published var trash: Int = 0
     @Published var board: Int = 0
+    @Published var angle: Double = 0.0
     @Published var color: Int = Orca.BLACK
     @Published var turns: Int = Orca.TOGGLE
 
@@ -60,6 +61,7 @@ class Match: ObservableObject {
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
         board = UserDefaults.standard.object(forKey: "Orca.board") as? Int ?? 0
+        angle = UserDefaults.standard.object(forKey: "Orca.angle") as? Double ?? 0.0
         color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
         turns = UserDefaults.standard.object(forKey: "Orca.turns") as? Int ?? Orca.TOGGLE
         stones = UserDefaults.standard.object(forKey: "Orca.stones") as? [Int] ?? Array(repeating: 0, count: 361)
@@ -109,8 +111,16 @@ class Match: ObservableObject {
     }
 
     func clickBoard(index: Int) {
-        board = index
-        UserDefaults.standard.set(board, forKey: "Orca.board")
+        if (board == index) {
+            angle += 90.0
+            if (angle > 270.0) {
+                angle = 0.0
+            }
+            UserDefaults.standard.set(angle, forKey: "Orca.angle")
+        } else {
+            board = index
+            UserDefaults.standard.set(board, forKey: "Orca.board")
+        }
     }
 
     func clickStone(index: Int) {

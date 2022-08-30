@@ -16,6 +16,7 @@ struct BoardView: View {
             Image(match.boardImage())
                 .resizable()
                 .frame(width: fullSize, height: fullSize, alignment: .center)
+                .rotationEffect(.degrees(match.angle))
                 .shadow(color: .black.opacity(0.5), radius: 1.75, x: -1.5, y: 1.25)
         }
     }
