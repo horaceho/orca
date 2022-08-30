@@ -119,6 +119,7 @@ class Match: ObservableObject {
             UserDefaults.standard.set(angle, forKey: "Orca.angle")
         } else {
             board = index
+            angle = 0.0
             UserDefaults.standard.set(board, forKey: "Orca.board")
         }
     }
