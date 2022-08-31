@@ -52,11 +52,25 @@ struct CloudView: View {
         }
     }
 
+    func rootUrl() -> URL {
+        let url = FileManager.default.url(forUbiquityContainerIdentifier: nil)!.appendingPathComponent("Documents")
+        var isDirectory: ObjCBool = false
+        if !FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory) {
+            do {
+                try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            }
+            catch {
+                print(error)
+            }
+        }
+        return url
+    }
+
     func refresh() {
-        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = rootUrl()
         do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil)
-            let txtFiles = directoryContents.filter{ $0.pathExtension == "txt" }
+            let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
+            let txtFiles = contents.filter{ $0.pathExtension == "txt" }
             let txtNames = txtFiles.map{ $0.lastPathComponent }
             files = []
             for txtName in txtNames {
@@ -69,13 +83,10 @@ struct CloudView: View {
 
     func random() {
         let file = "\(UUID().uuidString).txt"
-        let contents = "Some text..."
-
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = dir.appendingPathComponent(file)
-
+        let data = "..."
+        let url = rootUrl().appendingPathComponent(file)
         do {
-            try contents.write(to: fileURL, atomically: false, encoding: .utf8)
+            try data.write(to: url, atomically: false, encoding: .utf8)
         } catch {
             print(error)
         }
