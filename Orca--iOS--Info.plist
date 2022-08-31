@@ -23,7 +23,7 @@
                     <key>UTTypeDescription</key>
                     <string>SGF</string>
                     <key>UTTypeIdentifier</key>
-                    <string>com.horace.orca.sgf</string>
+                    <string>com.horaceho.orca.sgf</string>
                     <key>UTTypeTagSpecification</key>
                     <dict>
                         <key>public.filename-extension</key>
@@ -43,7 +43,7 @@
 					<key>UTTypeDescription</key>
 					<string>SGF</string>
 					<key>UTTypeIdentifier</key>
-					<string>com.horace.orca.sgf</string>
+					<string>com.horaceho.orca.sgf</string>
 					<key>UTTypeTagSpecification</key>
 					<dict>
 						<key>public.filename-extension</key>
