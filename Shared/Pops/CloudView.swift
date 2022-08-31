@@ -27,7 +27,7 @@ struct CloudView: View {
             Button(role: .none, action: {
                 refresh()
             }) {
-                Image(systemName: "list.dash")
+                Image(systemName: "arrow.clockwise.icloud")
                     .imageScale(.large)
             }.padding()
 
@@ -38,6 +38,8 @@ struct CloudView: View {
                 Image(systemName: "text.badge.plus")
                     .imageScale(.large)
             }.padding()
+
+            Text("\(files.count)").font(.caption).padding()
 
             Spacer()
 
@@ -75,7 +77,7 @@ struct CloudView: View {
         do {
             try contents.write(to: fileURL, atomically: false, encoding: .utf8)
         } catch {
-            print("Error: \(error)")
+            print(error)
         }
     }
 }
