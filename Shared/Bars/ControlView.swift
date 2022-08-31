@@ -37,6 +37,9 @@ struct ControlView: View {
             }.padding(.horizontal)
                 .popover(isPresented: $showiCloud) {
                     CloudView(showiCloud: $showiCloud)
+                        .frame(minWidth: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height),
+                               minHeight: 360.0,
+                               idealHeight: 720.0)
                 }
             Button(role: .none, action: {
                 showConfig = true

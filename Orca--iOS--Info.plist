@@ -13,27 +13,27 @@
 			<array>
 				<string>com.horaceho.orca.sgf</string>
 			</array>
-            <key>UTImportedTypeDeclarations</key>
-            <array>
-                <dict>
-                    <key>UTTypeConformsTo</key>
-                    <array>
-                        <string>public.text</string>
-                    </array>
-                    <key>UTTypeDescription</key>
-                    <string>SGF</string>
-                    <key>UTTypeIdentifier</key>
-                    <string>com.horaceho.orca.sgf</string>
-                    <key>UTTypeTagSpecification</key>
-                    <dict>
-                        <key>public.filename-extension</key>
-                        <array>
-                            <string>sgf</string>
-                        </array>
-                    </dict>
-                </dict>
-            </array>
 			<key>UTExportedTypeDeclarations</key>
+			<array>
+				<dict>
+					<key>UTTypeConformsTo</key>
+					<array>
+						<string>public.text</string>
+					</array>
+					<key>UTTypeDescription</key>
+					<string>SGF</string>
+					<key>UTTypeIdentifier</key>
+					<string>com.horaceho.orca.sgf</string>
+					<key>UTTypeTagSpecification</key>
+					<dict>
+						<key>public.filename-extension</key>
+						<array>
+							<string>sgf</string>
+						</array>
+					</dict>
+				</dict>
+			</array>
+			<key>UTImportedTypeDeclarations</key>
 			<array>
 				<dict>
 					<key>UTTypeConformsTo</key>
