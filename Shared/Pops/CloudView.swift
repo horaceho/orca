@@ -10,6 +10,7 @@ import SwiftUI
 struct File: Identifiable {
     let id = UUID()
     let name: String
+    let isDirectory: Bool
 }
 
 struct CloudView: View {
@@ -18,7 +19,7 @@ struct CloudView: View {
 
     var body: some View {
         List(files) {
-            Text($0.name)
+            Label($0.name, systemImage: $0.isDirectory ? "folder" : "circlebadge.2.fill")
         }
 
         Spacer()
@@ -70,19 +71,23 @@ struct CloudView: View {
         let url = rootUrl()
         do {
             let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
-            let txtFiles = contents.filter{ $0.pathExtension == "txt" }
-            let txtNames = txtFiles.map{ $0.lastPathComponent }
+            let folderNames = contents.filter( \.hasDirectoryPath ).map{ $0.lastPathComponent }.sorted()
+            let sgfFiles = contents.filter{ $0.pathExtension.lowercased() == "sgf" }
+            let sgfNames = sgfFiles.map{ $0.deletingPathExtension().lastPathComponent }.sorted()
             files = []
-            for txtName in txtNames {
-                files.append(File(name: txtName))
+            for folderName in folderNames {
+                files.append(File(name: folderName, isDirectory: true))
+            }
+            for sgfName in sgfNames {
+                files.append(File(name: sgfName, isDirectory: false))
             }
         } catch {
-             print(error)
+            print(error)
         }
     }
 
     func random() {
-        let file = "\(UUID().uuidString).txt"
+        let file = "\(UUID().uuidString).sgf"
         let data = "..."
         let url = rootUrl().appendingPathComponent(file)
         do {
