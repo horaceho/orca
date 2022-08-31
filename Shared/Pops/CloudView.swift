@@ -17,10 +17,8 @@ struct CloudView: View {
     @State var files: [File] = []
 
     var body: some View {
-        List {
-            ForEach(files) { file in
-                Text(file.name)
-            }
+        List(files) {
+            Text($0.name)
         }
 
         Spacer()
