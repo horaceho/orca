@@ -70,7 +70,7 @@ struct CloudView: View {
     func refresh() {
         let url = rootUrl()
         do {
-            let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
+            let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
             let folderNames = contents.filter( \.hasDirectoryPath ).map{ $0.lastPathComponent }.sorted()
             let sgfFiles = contents.filter{ $0.pathExtension.lowercased() == "sgf" }
             let sgfNames = sgfFiles.map{ $0.deletingPathExtension().lastPathComponent }.sorted()

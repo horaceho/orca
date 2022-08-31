@@ -2,6 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>SGF</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.horaceho.orca.sgf</string>
+			</array>
+            <key>UTImportedTypeDeclarations</key>
+            <array>
+                <dict>
+                    <key>UTTypeConformsTo</key>
+                    <array>
+                        <string>public.text</string>
+                    </array>
+                    <key>UTTypeDescription</key>
+                    <string>SGF</string>
+                    <key>UTTypeIdentifier</key>
+                    <string>com.horace.orca.sgf</string>
+                    <key>UTTypeTagSpecification</key>
+                    <dict>
+                        <key>public.filename-extension</key>
+                        <array>
+                            <string>sgf</string>
+                        </array>
+                    </dict>
+                </dict>
+            </array>
+			<key>UTExportedTypeDeclarations</key>
+			<array>
+				<dict>
+					<key>UTTypeConformsTo</key>
+					<array>
+						<string>public.text</string>
+					</array>
+					<key>UTTypeDescription</key>
+					<string>SGF</string>
+					<key>UTTypeIdentifier</key>
+					<string>com.horace.orca.sgf</string>
+					<key>UTTypeTagSpecification</key>
+					<dict>
+						<key>public.filename-extension</key>
+						<array>
+							<string>sgf</string>
+						</array>
+					</dict>
+				</dict>
+			</array>
+		</dict>
+	</array>
 	<key>NSUbiquitousContainers</key>
 	<dict>
 		<key>iCloud.com.horaceho.orca</key>
