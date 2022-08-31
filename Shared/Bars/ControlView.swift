@@ -25,7 +25,7 @@ struct ControlView: View {
                 Image(systemName: "brain.head.profile")
             }.padding(.horizontal)
             Button(role: .none, action: {
-             // match.clickDelete()
+                print("9 + 1 = \(addOneGetAnswer(9))");
             }) {
                 Image(systemName: "number")
             }.padding(.horizontal)
