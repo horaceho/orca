@@ -1,0 +1,3 @@
+[submodule "Libraries/sgfc"]
+	path = Libraries/sgfc
+	url = git@github.com:horaceho/sgfc.git
