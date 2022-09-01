@@ -6,62 +6,30 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
-			<string>Orca-SGF.png</string>
+			<array>
+				<string>Orca-SGF.png</string>
+			</array>
 			<key>CFBundleTypeName</key>
 			<string>SGF</string>
 			<key>LSHandlerRank</key>
 			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.horaceho.orca.sgf</string>
+				<string>public.text</string>
 			</array>
-			<key>UTExportedTypeDeclarations</key>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
 			<array>
-				<dict>
-					<key>UTTypeConformsTo</key>
-					<array>
-						<string>public.text</string>
-					</array>
-					<key>UTTypeDescription</key>
-					<string>SGF</string>
-					<key>UTTypeIconFiles</key>
-					<array>
-						<string>Orca-SGF.png</string>
-					</array>
-					<key>UTTypeIdentifier</key>
-					<string>com.horaceho.orca.sgf</string>
-					<key>UTTypeTagSpecification</key>
-					<dict>
-						<key>public.filename-extension</key>
-						<array>
-							<string>sgf</string>
-						</array>
-					</dict>
-				</dict>
+				<string>Orca-SGF.png</string>
 			</array>
-			<key>UTImportedTypeDeclarations</key>
+			<key>CFBundleTypeName</key>
+			<string>SGF</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+			<key>LSItemContentTypes</key>
 			<array>
-				<dict>
-					<key>UTTypeConformsTo</key>
-					<array>
-						<string>public.text</string>
-					</array>
-					<key>UTTypeDescription</key>
-					<string>SGF</string>
-					<key>UTTypeIconFiles</key>
-					<array>
-						<string>Orca-SGF.png</string>
-					</array>
-					<key>UTTypeIdentifier</key>
-					<string>com.horaceho.orca.sgf</string>
-					<key>UTTypeTagSpecification</key>
-					<dict>
-						<key>public.filename-extension</key>
-						<array>
-							<string>sgf</string>
-						</array>
-					</dict>
-				</dict>
+				<string>public.sgf</string>
 			</array>
 		</dict>
 	</array>
@@ -77,5 +45,55 @@
 			<string>Any</string>
 		</dict>
 	</dict>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>SGF</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Orca-SGF.png</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.horaceho.orca.sgf</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>sgf</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>SGF</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Orca-SGF.png</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.horaceho.orca.sgf</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>sgf</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
