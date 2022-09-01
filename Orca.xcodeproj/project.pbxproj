@@ -114,12 +114,12 @@
 		F52B192128B876B800887617 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				F518676E28BB16F2008C3D2F /* Bars */,
-				F5F76E1928BCCD7A006E1ABF /* Pops */,
-				F5C55CE728B9F9270099413E /* Models */,
 				F52B192228B876B800887617 /* OrcaApp.swift */,
 				F52B192328B876B800887617 /* ContentView.swift */,
 				F523AD2628B8C0F700054E1E /* HelloView.swift */,
+				F518676E28BB16F2008C3D2F /* Bars */,
+				F5F76E1928BCCD7A006E1ABF /* Pops */,
+				F5C55CE728B9F9270099413E /* Models */,
 				F57C77DC28BF1BED001F762F /* Views */,
 				F52B192428B876B800887617 /* Assets.xcassets */,
 			);
@@ -458,7 +458,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Orca (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -474,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horaceho.orca;
 				PRODUCT_NAME = Orca;
 				SDKROOT = iphoneos;
@@ -494,7 +494,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Orca (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -510,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horaceho.orca;
 				PRODUCT_NAME = Orca;
 				SDKROOT = iphoneos;

@@ -11,16 +11,42 @@ struct File: Identifiable {
     let id = UUID()
     let name: String
     let icon: String
+    let link: URL?
 }
 
 struct CloudView: View {
     @Binding var showiCloud: Bool
     @State var files: [File] = []
+    @State var last_id: UUID = UUID()
 
     var body: some View {
         VStack() {
-            List(files) {
-                Label($0.name, systemImage: $0.icon)
+            List(files) { file in
+                HStack {
+                    Label(file.name, systemImage: file.icon)
+                    Spacer()
+                    Image(systemName: "square.and.arrow.up")
+                        .opacity(file.id == last_id ? 1.0 : 0.0)
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    if let url = file.link {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        if file.icon == "folder" {
+                            last_id = UUID()
+                            clickFolder(name: file.name)
+                        } else {
+                            if file.id == last_id {
+                                last_id = UUID()
+                                clickFile(name: file.name)
+                                showiCloud = false
+                            } else {
+                                last_id = file.id
+                            }
+                        }
+                    }
+                }
             }
 
             HStack {
@@ -70,7 +96,11 @@ struct CloudView: View {
         }
 
         files = []
-        files.append(File(name: "Please check iCloud Drive login ...", icon: "info.circle"))
+        files.append(File(
+            name:"Please check the iCloud Drive sign in ...",
+            icon: "exclamationmark.icloud",
+            link: URL(string: UIApplication.openSettingsURLString)
+        ))
 
         return nil
     }
@@ -84,10 +114,18 @@ struct CloudView: View {
                 let sgfNames = sgfFiles.map{ $0.deletingPathExtension().lastPathComponent }.sorted()
                 files = []
                 for folderName in folderNames {
-                    files.append(File(name: folderName, icon: "folder"))
+                    files.append(File(
+                        name: folderName,
+                        icon: "folder",
+                        link: nil
+                    ))
                 }
                 for sgfName in sgfNames {
-                    files.append(File(name: sgfName, icon: "circlebadge.2.fill"))
+                    files.append(File(
+                        name: sgfName,
+                        icon: "circlebadge.2.fill",
+                        link: nil
+                    ))
                 }
             } catch {
                 print(error)
@@ -106,6 +144,14 @@ struct CloudView: View {
                 print(error)
             }
         }
+    }
+
+    func clickFolder(name: String) {
+        print("Folder: \(name)")
+    }
+
+    func clickFile(name: String) {
+        print("File: \(name)")
     }
 }
 

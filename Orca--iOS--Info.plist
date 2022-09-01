@@ -5,6 +5,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<string>Orca-SGF.png</string>
 			<key>CFBundleTypeName</key>
 			<string>SGF</string>
 			<key>LSHandlerRank</key>
@@ -22,6 +24,10 @@
 					</array>
 					<key>UTTypeDescription</key>
 					<string>SGF</string>
+					<key>UTTypeIconFiles</key>
+					<array>
+						<string>Orca-SGF.png</string>
+					</array>
 					<key>UTTypeIdentifier</key>
 					<string>com.horaceho.orca.sgf</string>
 					<key>UTTypeTagSpecification</key>
@@ -42,6 +48,10 @@
 					</array>
 					<key>UTTypeDescription</key>
 					<string>SGF</string>
+					<key>UTTypeIconFiles</key>
+					<array>
+						<string>Orca-SGF.png</string>
+					</array>
 					<key>UTTypeIdentifier</key>
 					<string>com.horaceho.orca.sgf</string>
 					<key>UTTypeTagSpecification</key>
