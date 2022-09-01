@@ -25,9 +25,8 @@ struct CloudView: View {
                 HStack {
                     Label(file.name, systemImage: file.icon)
                     Spacer()
-                    Image(systemName: "square.and.arrow.up")
-                        .opacity(file.id == last_id ? 1.0 : 0.0)
                 }
+                .listRowBackground(file.id == last_id ? Color.gray.opacity(0.25) : Color.clear)
                 .contentShape(Rectangle())
                 .onTapGesture {
                     if let url = file.link {
