@@ -27,6 +27,15 @@ struct ControlView: View {
             }.padding(.horizontal)
             Button(role: .none, action: {
                 print("9 + 1 = \(addOneGetAnswer(9))");
+                if let url = match.sgfUrl {
+                    print(url.path)
+                    sgfInit()
+                    var ok = sgfArgs("encoding", "GB18030")
+                    if (ok) { sgfLoad(url.path) }
+                    if (ok) { ok = sgfParse() }
+                    if (ok) { sgfDump() }
+                    sgfFree()
+                }
             }) {
                 Image(systemName: "number")
             }.padding(.horizontal)

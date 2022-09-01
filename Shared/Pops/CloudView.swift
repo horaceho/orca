@@ -177,7 +177,7 @@ struct CloudView: View {
 
     func clickFile(name: String) {
         if let url = pathUrl {
-            match.sgfUrl = url.appendingPathComponent(name)
+            match.sgfUrl = url.appendingPathComponent(name).appendingPathExtension("sgf")
         }
     }
 }

@@ -64,6 +64,8 @@
 		F5C55CEA28BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
 		F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
 		F5C55CED28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
+		F5F1AECF28C0C32900351F80 /* SgfOne.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AECE28C0C32900351F80 /* SgfOne.c */; };
+		F5F1AED028C0C32900351F80 /* SgfOne.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AECE28C0C32900351F80 /* SgfOne.c */; };
 		F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +156,8 @@
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
 		F5C55CEB28BA0F910099413E /* GridsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridsView.swift; sourceTree = "<group>"; };
+		F5F1AECD28C0C32900351F80 /* SgfOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SgfOne.h; sourceTree = "<group>"; };
+		F5F1AECE28C0C32900351F80 /* SgfOne.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SgfOne.c; sourceTree = "<group>"; };
 		F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				F57C77D328BF01C2001F762F /* Orca (iOS)-Bridging-Header.h */,
+				F5F1AECC28C0C2FF00351F80 /* SgfOne */,
 				F503ED1E28C0806600AC8510 /* sgfc */,
 				F57C77CF28BF01C2001F762F /* AddOne */,
 			);
@@ -373,6 +378,15 @@
 				F5C55CE828BA07A90099413E /* Orca.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5F1AECC28C0C2FF00351F80 /* SgfOne */ = {
+			isa = PBXGroup;
+			children = (
+				F5F1AECD28C0C32900351F80 /* SgfOne.h */,
+				F5F1AECE28C0C32900351F80 /* SgfOne.c */,
+			);
+			path = SgfOne;
 			sourceTree = "<group>";
 		};
 		F5F76E1928BCCD7A006E1ABF /* Pops */ = {
@@ -499,6 +513,7 @@
 				F503ED9028C0806600AC8510 /* parse.c in Sources */,
 				F5C55CE928BA07A90099413E /* Orca.swift in Sources */,
 				F52B193428B876B800887617 /* ContentView.swift in Sources */,
+				F5F1AECF28C0C32900351F80 /* SgfOne.c in Sources */,
 				F503ED9428C0806600AC8510 /* encoding.c in Sources */,
 				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
 				F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */,
@@ -521,6 +536,7 @@
 				F52B194228B8794000887617 /* StoneView.swift in Sources */,
 				F52E99FE28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
+				F5F1AED028C0C32900351F80 /* SgfOne.c in Sources */,
 				F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
