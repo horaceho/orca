@@ -12,8 +12,12 @@ struct HelloView: View {
 
     var body: some View {
         VStack {
-            Text("Hello, Orca!")
-                .font(.title)
+            if let title = match.sgfUrl {
+                Text(title.lastPathComponent)
+            } else {
+                Text("Hello, Orca!")
+                    .font(.title)
+            }
             Text("Clicks \(match.clicks.count) B \(match.blackDead) W \(match.whiteDead)")
                 .font(.subheadline)
                 .foregroundColor(.gray)

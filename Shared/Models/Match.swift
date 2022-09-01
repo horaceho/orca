@@ -57,6 +57,8 @@ class Match: ObservableObject {
     @Published var blackDead: Int = 0
     @Published var whiteDead: Int = 0
 
+    @Published var sgfUrl: URL?
+
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
         board = UserDefaults.standard.object(forKey: "Orca.board") as? Int ?? 0

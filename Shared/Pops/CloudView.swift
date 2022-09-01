@@ -16,8 +16,10 @@ struct File: Identifiable {
 
 struct CloudView: View {
     @Binding var showiCloud: Bool
+    @EnvironmentObject var match: Match
     @State var files: [File] = []
-    @State var last_id: UUID = UUID()
+    @State var lastId: UUID = UUID()
+    @State var pathUrl: URL?
 
     var body: some View {
         VStack() {
@@ -26,22 +28,22 @@ struct CloudView: View {
                     Label(file.name, systemImage: file.icon)
                     Spacer()
                 }
-                .listRowBackground(file.id == last_id ? Color.gray.opacity(0.25) : Color.clear)
+                .listRowBackground(file.id == lastId ? Color.gray.opacity(0.25) : Color.clear)
                 .contentShape(Rectangle())
                 .onTapGesture {
                     if let url = file.link {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     } else {
                         if file.icon == "folder" {
-                            last_id = UUID()
+                            lastId = UUID()
                             clickFolder(name: file.name)
                         } else {
-                            if file.id == last_id {
-                                last_id = UUID()
+                            if file.id == lastId {
+                                lastId = UUID()
                                 clickFile(name: file.name)
                                 showiCloud = false
                             } else {
-                                last_id = file.id
+                                lastId = file.id
                             }
                         }
                     }
@@ -56,13 +58,12 @@ struct CloudView: View {
                         .imageScale(.large)
                 }.padding()
 
-                Button(role: .none, action: {
-                    random()
-                    refresh()
-                }) {
-                    Image(systemName: "text.badge.plus")
-                        .imageScale(.large)
-                }.padding()
+//                Button(role: .none, action: {
+//                    //
+//                }) {
+//                    Image(systemName: "text.badge.plus")
+//                        .imageScale(.large)
+//                }.padding()
 
 //                Text("\(files.count)")
 //                    .font(.caption)
@@ -77,6 +78,13 @@ struct CloudView: View {
                         .imageScale(.large)
                 }.padding()
             }.padding(.horizontal)
+        }.task {
+            if let url = rootUrl() {
+                pathUrl = url
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.refresh()
+                }
+            }
         }
     }
 
@@ -93,25 +101,26 @@ struct CloudView: View {
             }
             return url
         }
-
-        files = []
-        files.append(File(
-            name:"Please check the iCloud Drive sign in ...",
-            icon: "exclamationmark.icloud",
-            link: URL(string: UIApplication.openSettingsURLString)
-        ))
-
         return nil
     }
 
     func refresh() {
-        if let url = rootUrl() {
+        files = []
+        if let url = pathUrl {
+            if url.lastPathComponent == "Documents" {
+                // at root
+            } else {
+                files.append(File(
+                    name: "..",
+                    icon: "folder",
+                    link: nil
+                ))
+            }
             do {
                 let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
                 let folderNames = contents.filter( \.hasDirectoryPath ).map{ $0.lastPathComponent }.sorted()
                 let sgfFiles = contents.filter{ $0.pathExtension.lowercased() == "sgf" }
                 let sgfNames = sgfFiles.map{ $0.deletingPathExtension().lastPathComponent }.sorted()
-                files = []
                 for folderName in folderNames {
                     files.append(File(
                         name: folderName,
@@ -129,11 +138,21 @@ struct CloudView: View {
             } catch {
                 print(error)
             }
+        } else {
+            files.append(File(
+                name:"Please check the iCloud Drive sign in ...",
+                icon: "exclamationmark.icloud",
+                link: URL(string: UIApplication.openSettingsURLString)
+            ))
+
+            if let url = rootUrl() {
+                pathUrl = url
+            }
         }
     }
 
     func random() {
-        if let url = rootUrl() {
+        if let url = pathUrl {
             let file = "\(UUID().uuidString).sgf"
             let data = "..."
             let url = url.appendingPathComponent(file)
@@ -146,16 +165,26 @@ struct CloudView: View {
     }
 
     func clickFolder(name: String) {
-        print("Folder: \(name)")
+        if let url = pathUrl {
+            if name == ".." {
+                pathUrl = url.deletingLastPathComponent()
+            } else {
+                pathUrl = url.appendingPathComponent(name)
+            }
+        }
+        refresh()
     }
 
     func clickFile(name: String) {
-        print("File: \(name)")
+        if let url = pathUrl {
+            match.sgfUrl = url.appendingPathComponent(name)
+        }
     }
 }
 
 struct CloudView_Previews: PreviewProvider {
     static var previews: some View {
         CloudView(showiCloud: .constant(true))
+            .environmentObject(Match())
     }
 }
