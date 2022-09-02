@@ -58,12 +58,16 @@
 		F57C77D728BF01C2001F762F /* AddOne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57C77D228BF01C2001F762F /* AddOne.cpp */; };
 		F57C77DE28BF1C75001F762F /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57C77DD28BF1C75001F762F /* CloudView.swift */; };
 		F57C77E328BF1F9A001F762F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57C77E228BF1F9A001F762F /* CloudKit.framework */; };
+		F5B9007C28C1952A00C4A2AE /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007B28C1952A00C4A2AE /* TreeView.swift */; };
+		F5B9007D28C1952A00C4A2AE /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007B28C1952A00C4A2AE /* TreeView.swift */; };
+		F5B9007F28C1967F00C4A2AE /* Smart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007E28C1967F00C4A2AE /* Smart.swift */; };
+		F5B9008028C1967F00C4A2AE /* Smart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007E28C1967F00C4A2AE /* Smart.swift */; };
 		F5C55CE528B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE628B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE928BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
 		F5C55CEA28BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
-		F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
-		F5C55CED28BA0F910099413E /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridsView.swift */; };
+		F5C55CEC28BA0F910099413E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridView.swift */; };
+		F5C55CED28BA0F910099413E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridView.swift */; };
 		F5F1AECF28C0C32900351F80 /* SgfOne.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AECE28C0C32900351F80 /* SgfOne.c */; };
 		F5F1AED028C0C32900351F80 /* SgfOne.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AECE28C0C32900351F80 /* SgfOne.c */; };
 		F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */; };
@@ -152,10 +156,12 @@
 		F57C77DD28BF1C75001F762F /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
 		F57C77E028BF1F96001F762F /* Orca (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Orca (iOS).entitlements"; sourceTree = "<group>"; };
 		F57C77E228BF1F9A001F762F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		F5B9007B28C1952A00C4A2AE /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
+		F5B9007E28C1967F00C4A2AE /* Smart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart.swift; sourceTree = "<group>"; };
 		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
-		F5C55CEB28BA0F910099413E /* GridsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridsView.swift; sourceTree = "<group>"; };
+		F5C55CEB28BA0F910099413E /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		F5F1AECD28C0C32900351F80 /* SgfOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SgfOne.h; sourceTree = "<group>"; };
 		F5F1AECE28C0C32900351F80 /* SgfOne.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SgfOne.c; sourceTree = "<group>"; };
 		F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
@@ -354,8 +360,9 @@
 			children = (
 				F52E99F928BC656C007B707E /* BoardView.swift */,
 				F52E99FC28BC9D0F007B707E /* ClickView.swift */,
-				F5C55CEB28BA0F910099413E /* GridsView.swift */,
+				F5C55CEB28BA0F910099413E /* GridView.swift */,
 				F52B194028B8794000887617 /* StoneView.swift */,
+				F5B9007B28C1952A00C4A2AE /* TreeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				F5C55CE428B9F8CB0099413E /* Match.swift */,
+				F5B9007E28C1967F00C4A2AE /* Smart.swift */,
 				F5C55CE828BA07A90099413E /* Orca.swift */,
 			);
 			path = Models;
@@ -503,7 +511,9 @@
 				F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */,
 				F503ED9128C0806600AC8510 /* save.c in Sources */,
 				F52B194128B8794000887617 /* StoneView.swift in Sources */,
+				F5B9007C28C1952A00C4A2AE /* TreeView.swift in Sources */,
 				F503ED8928C0806600AC8510 /* strict.c in Sources */,
+				F5B9007F28C1967F00C4A2AE /* Smart.swift in Sources */,
 				F52E99FD28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F503EDA928C089DF00AC8510 /* options.c in Sources */,
 				F503ED9228C0806600AC8510 /* load.c in Sources */,
@@ -516,7 +526,7 @@
 				F5F1AECF28C0C32900351F80 /* SgfOne.c in Sources */,
 				F503ED9428C0806600AC8510 /* encoding.c in Sources */,
 				F5C55CE528B9F8CB0099413E /* Match.swift in Sources */,
-				F5C55CEC28BA0F910099413E /* GridsView.swift in Sources */,
+				F5C55CEC28BA0F910099413E /* GridView.swift in Sources */,
 				F503ED8828C0806600AC8510 /* util.c in Sources */,
 				F503ED8C28C0806600AC8510 /* execute.c in Sources */,
 				F503ED8D28C0806600AC8510 /* properties.c in Sources */,
@@ -534,11 +544,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52B194228B8794000887617 /* StoneView.swift in Sources */,
+				F5B9008028C1967F00C4A2AE /* Smart.swift in Sources */,
 				F52E99FE28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F523AD2828B8C0F700054E1E /* HelloView.swift in Sources */,
 				F5F1AED028C0C32900351F80 /* SgfOne.c in Sources */,
 				F518676D28BB0370008C3D2F /* NavigationView.swift in Sources */,
 				F5C55CEA28BA07A90099413E /* Orca.swift in Sources */,
+				F5B9007D28C1952A00C4A2AE /* TreeView.swift in Sources */,
 				F52B193528B876B800887617 /* ContentView.swift in Sources */,
 				F503ED9E28C0818900AC8510 /* strict.c in Sources */,
 				F503ED9C28C0818900AC8510 /* parse2.c in Sources */,
@@ -550,7 +562,7 @@
 				F503ED9D28C0818900AC8510 /* properties.c in Sources */,
 				F503EDA028C0818900AC8510 /* execute.c in Sources */,
 				F57C77D528BF01C2001F762F /* AddOneWapper.cpp in Sources */,
-				F5C55CED28BA0F910099413E /* GridsView.swift in Sources */,
+				F5C55CED28BA0F910099413E /* GridView.swift in Sources */,
 				F503ED9628C0818900AC8510 /* parse.c in Sources */,
 				F503ED9A28C0818900AC8510 /* error.c in Sources */,
 				F518677128BB17CB008C3D2F /* ControlView.swift in Sources */,

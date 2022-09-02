@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ControlView: View {
     @EnvironmentObject var match: Match
+    @EnvironmentObject var smart: Smart
     @State private var showiCloud = false
     @State private var showConfig = false
 
@@ -27,6 +28,7 @@ struct ControlView: View {
             }.padding(.horizontal)
             Button(role: .none, action: {
                 print("9 + 1 = \(addOneGetAnswer(9))");
+                smart.random()
                 if let url = match.sgfUrl {
                     print(url.path)
                     sgfInit()

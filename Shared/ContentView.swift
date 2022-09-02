@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var match = Match()
+    @StateObject var smart = Smart()
 
     var body: some View {
         GeometryReader { (geometry) in
@@ -16,13 +17,14 @@ struct ContentView: View {
                 HStack {
                     ZStack {
                         BoardView()
-                     // GridsView()
+                     // GridView()
                         StoneView()
-                    }.frame(maxWidth: geometry.size.height, maxHeight:geometry.size.height)
+                    }.frame(width: geometry.size.height, height:geometry.size.height)
                     Spacer()
                     VStack() {
                         HelloView()
                         Spacer()
+                        TreeView()
                         ControlView()
                     }
                     Spacer()
@@ -31,16 +33,19 @@ struct ContentView: View {
                 VStack {
                     ZStack {
                         BoardView()
-                     // GridsView()
+                     // GridView()
                         StoneView()
                     }.frame(maxWidth: geometry.size.width, maxHeight:geometry.size.width)
                     HelloView()
                     Spacer()
+                    TreeView()
                     ControlView()
                 }
             }
             let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")
-        }.environmentObject(match)
+        }
+        .environmentObject(match)
+        .environmentObject(smart)
     }
 }
 

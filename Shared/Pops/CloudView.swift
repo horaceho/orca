@@ -58,12 +58,12 @@ struct CloudView: View {
                         .imageScale(.large)
                 }.padding()
 
-//                Button(role: .none, action: {
-//                    //
-//                }) {
-//                    Image(systemName: "text.badge.plus")
-//                        .imageScale(.large)
-//                }.padding()
+                Button(role: .none, action: {
+                    random()
+                }) {
+                    Image(systemName: "text.badge.plus")
+                        .imageScale(.large)
+                }.padding()
 
 //                Text("\(files.count)")
 //                    .font(.caption)

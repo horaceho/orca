@@ -1,5 +1,5 @@
 //
-//  GridsView.swift
+//  GridView.swift
 //  Orca
 //
 //  Created by Horace Ho on 2022/08/27.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GridsView: View {
+struct GridView: View {
     @EnvironmentObject var match: Match
 
     var body: some View {
@@ -60,9 +60,9 @@ struct GridsView: View {
     }
 }
 
-struct GridsView_Previews: PreviewProvider {
+struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        GridsView()
+        GridView()
             .environmentObject(Match())
     }
 }
