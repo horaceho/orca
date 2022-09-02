@@ -62,6 +62,10 @@
 		F5B9007D28C1952A00C4A2AE /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007B28C1952A00C4A2AE /* TreeView.swift */; };
 		F5B9007F28C1967F00C4A2AE /* Smart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007E28C1967F00C4A2AE /* Smart.swift */; };
 		F5B9008028C1967F00C4A2AE /* Smart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007E28C1967F00C4A2AE /* Smart.swift */; };
+		F5B9008328C1BAAB00C4A2AE /* SgfcKit_static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B9008228C1BAAB00C4A2AE /* SgfcKit_static.framework */; };
+		F5B9008428C1BAAB00C4A2AE /* SgfcKit_static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B9008228C1BAAB00C4A2AE /* SgfcKit_static.framework */; };
+		F5B9008628C1BADA00C4A2AE /* libsgfcplusplus_static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B9008528C1BAD900C4A2AE /* libsgfcplusplus_static.framework */; };
+		F5B9008728C1BADA00C4A2AE /* libsgfcplusplus_static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B9008528C1BAD900C4A2AE /* libsgfcplusplus_static.framework */; };
 		F5C55CE528B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE628B9F8CB0099413E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE428B9F8CB0099413E /* Match.swift */; };
 		F5C55CE928BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
@@ -158,6 +162,8 @@
 		F57C77E228BF1F9A001F762F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		F5B9007B28C1952A00C4A2AE /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		F5B9007E28C1967F00C4A2AE /* Smart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart.swift; sourceTree = "<group>"; };
+		F5B9008228C1BAAB00C4A2AE /* SgfcKit_static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SgfcKit_static.framework; path = Libraries/Release/SgfcKit/Frameworks/SgfcKit_static.framework; sourceTree = "<group>"; };
+		F5B9008528C1BAD900C4A2AE /* libsgfcplusplus_static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libsgfcplusplus_static.framework; path = Libraries/SgfcKit/libsgfcplusplus/build/install/Frameworks/libsgfcplusplus_static.framework; sourceTree = "<group>"; };
 		F5C55CE228B9F2290099413E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 			files = (
 				F57C77E328BF1F9A001F762F /* CloudKit.framework in Frameworks */,
 				F503EDA428C082A400AC8510 /* libiconv.tbd in Frameworks */,
+				F5B9008628C1BADA00C4A2AE /* libsgfcplusplus_static.framework in Frameworks */,
+				F5B9008328C1BAAB00C4A2AE /* SgfcKit_static.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +191,8 @@
 			files = (
 				F503EDA828C086F100AC8510 /* CloudKit.framework in Frameworks */,
 				F503EDA628C082B700AC8510 /* libiconv.tbd in Frameworks */,
+				F5B9008728C1BADA00C4A2AE /* libsgfcplusplus_static.framework in Frameworks */,
+				F5B9008428C1BAAB00C4A2AE /* SgfcKit_static.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +351,7 @@
 				F5F1AECC28C0C2FF00351F80 /* SgfOne */,
 				F503ED1E28C0806600AC8510 /* sgfc */,
 				F57C77CF28BF01C2001F762F /* AddOne */,
+				F5B9008128C1B82D00C4A2AE /* Release */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -370,12 +381,21 @@
 		F57C77E128BF1F9A001F762F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5B9008228C1BAAB00C4A2AE /* SgfcKit_static.framework */,
+				F5B9008528C1BAD900C4A2AE /* libsgfcplusplus_static.framework */,
+				F57C77E228BF1F9A001F762F /* CloudKit.framework */,
 				F503EDA728C086F100AC8510 /* CloudKit.framework */,
 				F503EDA328C082A400AC8510 /* libiconv.tbd */,
 				F503EDA528C082B700AC8510 /* libiconv.tbd */,
-				F57C77E228BF1F9A001F762F /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5B9008128C1B82D00C4A2AE /* Release */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Release;
 			sourceTree = "<group>";
 		};
 		F5C55CE728B9F9270099413E /* Models */ = {
@@ -697,6 +717,11 @@
 				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/Release/SgfcKit/Frameworks",
+					"$(PROJECT_DIR)/Libraries/SgfcKit/libsgfcplusplus/build/install/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Orca--iOS--Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -733,6 +758,11 @@
 				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/Release/SgfcKit/Frameworks",
+					"$(PROJECT_DIR)/Libraries/SgfcKit/libsgfcplusplus/build/install/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Orca--iOS--Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -771,6 +801,11 @@
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/Release/SgfcKit/Frameworks",
+					"$(PROJECT_DIR)/Libraries/SgfcKit/libsgfcplusplus/build/install/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -802,6 +837,11 @@
 				DEVELOPMENT_TEAM = 58479H4BXP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/Release/SgfcKit/Frameworks",
+					"$(PROJECT_DIR)/Libraries/SgfcKit/libsgfcplusplus/build/install/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,3 +1,6 @@
 [submodule "Libraries/sgfc"]
 	path = Libraries/sgfc
 	url = git@github.com:horaceho/sgfc.git
+[submodule "Libraries/SgfcKit"]
+	path = Libraries/SgfcKit
+	url = git@github.com:herzbube/SgfcKit.git
