@@ -35,7 +35,7 @@ struct ContentView: View {
                         BoardView()
                      // GridView()
                         StoneView()
-                    }.frame(maxWidth: geometry.size.width, maxHeight:geometry.size.width)
+                    }.frame(width: geometry.size.width, height:geometry.size.width)
                     HelloView()
                     Spacer()
                     TreeView()

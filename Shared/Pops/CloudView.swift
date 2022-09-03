@@ -24,30 +24,64 @@ struct CloudView: View {
     var body: some View {
         VStack() {
             List(files) { file in
-                HStack {
-                    Label(file.name, systemImage: file.icon)
-                    Spacer()
-                }
-                .listRowBackground(file.id == lastId ? Color.gray.opacity(0.25) : Color.clear)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    if let url = file.link {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        if file.icon == "folder" {
-                            lastId = UUID()
-                            clickFolder(name: file.name)
+                ZStack {
+                    HStack {
+                        Label(file.name, systemImage: file.icon)
+                        Spacer()
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if let url = file.link {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
                         } else {
-                            if file.id == lastId {
+                            if file.icon == "folder" {
                                 lastId = UUID()
-                                clickFile(name: file.name)
-                                showiCloud = false
+                                clickFolder(name: file.name)
                             } else {
-                                lastId = file.id
+                                if file.id == lastId {
+                                    lastId = UUID()
+                                    clickFile(name: file.name, encoding: "UTF-8")
+                                    showiCloud = false
+                                } else {
+                                    lastId = file.id
+                                }
                             }
                         }
                     }
-                }
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            clickFile(name: file.name, encoding: "UTF-8")
+                            showiCloud = false
+                        }) {
+                            Text("A").font(.caption)
+                        }.buttonStyle(.borderedProminent)
+                        Button(action: {
+                            clickFile(name: file.name, encoding: "EUC-CN")
+                            showiCloud = false
+                        }) {
+                            Text("简").font(.caption)
+                        }.buttonStyle(.borderedProminent)
+                        Button(action: {
+                            clickFile(name: file.name, encoding: "EUC-TW")
+                            showiCloud = false
+                        }) {
+                            Text("繁").font(.caption)
+                        }.buttonStyle(.borderedProminent)
+                        Button(action: {
+                            clickFile(name: file.name, encoding: "EUC-JP")
+                            showiCloud = false
+                        }) {
+                            Text("あ").font(.caption)
+                        }.buttonStyle(.borderedProminent)
+                        Button(action: {
+                            clickFile(name: file.name, encoding: "SEUC-KR")
+                            showiCloud = false
+                        }) {
+                            Text("가").font(.caption)
+                        }.buttonStyle(.borderedProminent)
+                    }.opacity(file.id == lastId ? 1.0 : 0.0)
+                }.listRowBackground(file.id == lastId ? Color.gray.opacity(0.2) : Color.clear)
             }
 
             HStack {
@@ -175,9 +209,10 @@ struct CloudView: View {
         refresh()
     }
 
-    func clickFile(name: String) {
+    func clickFile(name: String, encoding: String) {
         if let url = pathUrl {
             match.sgfUrl = url.appendingPathComponent(name).appendingPathExtension("sgf")
+            match.sgfEncoding = encoding
         }
     }
 }

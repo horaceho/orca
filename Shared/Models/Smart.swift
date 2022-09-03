@@ -22,4 +22,15 @@ class Smart: ObservableObject {
             index: letter
         ))
     }
+
+    func test(filename: String, encoding: String) {
+        let sgf = GoSGF()
+        sgf.setupInfo()
+        sgf.parseArgs()
+        sgf.encoding(encoding)
+        sgf.openFile(filename)
+        sgf.parseSgf()
+        sgf.printAll()
+        print("Ready: \(sgf.isReady())")
+    }
 }

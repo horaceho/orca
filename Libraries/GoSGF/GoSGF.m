@@ -374,8 +374,8 @@ const int UNI_TR = 0x25B2;
         nodecount++;
     }
 
-    NSLog(@"Trees: %d FF: %d GM: %d %d x %d Moves: %d",
-          sgf->info->num, sgf->info->FF, sgf->info->GM, sgf->info->bwidth, sgf->info->bheight, moveCount);
+//    NSLog(@"Trees: %d FF: %d GM: %d %d x %d Moves: %d",
+//          sgf->info->num, sgf->info->FF, sgf->info->GM, sgf->info->bwidth, sgf->info->bheight, moveCount);
 }
 
 - (void)printProperty:(struct Property *)property

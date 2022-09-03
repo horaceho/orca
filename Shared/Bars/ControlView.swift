@@ -28,16 +28,8 @@ struct ControlView: View {
             }.padding(.horizontal)
             Button(role: .none, action: {
                 print("9 + 1 = \(addOneGetAnswer(9))");
-                smart.random()
                 if let url = match.sgfUrl {
-                    let sgf = GoSGF()
-                    sgf.setupInfo()
-                    sgf.parseArgs()
-                    sgf.encoding("GB18030")
-                    sgf.openFile(url.path)
-                    sgf.parseSgf()
-                    sgf.printAll()
-                    print("Ready: \(sgf.isReady())")
+                    smart.test(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
                 }
             }) {
                 Image(systemName: "number")
