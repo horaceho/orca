@@ -42,7 +42,8 @@ const int UNI_TR = 0x25B2;
 
 - (id)init
 {
-    NSLog(@"%s", __func__);
+    if (debug) NSLog(@"%s", __func__);
+
     sgf = NULL;
     return self;
 }
@@ -54,7 +55,7 @@ const int UNI_TR = 0x25B2;
         sgf = NULL;
     }
 
-    NSLog(@"%s", __func__);
+    if (debug) NSLog(@"%s", __func__);
 }
 
 - (void)setupInfo
@@ -336,12 +337,15 @@ const int UNI_TR = 0x25B2;
 - (void)printAll
 {
     int moveCount = 0;
-    int nodecount = 0;
+    int nodeCount = 0;
     for (struct Node* node = sgf->root; node; node = node->child) {
+        nodeCount++;
         if (node->prop->flags & TYPE_MOVE) {
             moveCount++;
+            printf("%03d/%03d ", moveCount, nodeCount);
+        } else {
+            printf("---/%03d ", nodeCount);
         }
-        printf("%03d/%03d ", moveCount, nodecount);
 
         for (struct Property *property = node->prop; property; property = property->next) {
             char *value1 = property->value->value  ? property->value->value  : "";
@@ -350,11 +354,7 @@ const int UNI_TR = 0x25B2;
             printf("%s[%s%s%s] ", property->idstr, value1, colon, value2);
         }
         printf("\n");
-        nodecount++;
     }
-
-//    NSLog(@"Trees: %d FF: %d GM: %d %d x %d Moves: %d",
-//          sgf->info->num, sgf->info->FF, sgf->info->GM, sgf->info->bwidth, sgf->info->bheight, moveCount);
 }
 
 - (void)printProperty:(struct Property *)property

@@ -42,7 +42,7 @@ struct ContentView: View {
                     ControlView()
                 }
             }
-            let _ = print("W:\(geometry.size.width) H:\(geometry.size.height) ")
+            let _ = print("Geometry width: \(geometry.size.width) height: \(geometry.size.height)")
         }
         .environmentObject(match)
         .environmentObject(smart)
