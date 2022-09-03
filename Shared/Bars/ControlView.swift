@@ -30,6 +30,7 @@ struct ControlView: View {
                 print("9 + 1 = \(addOneGetAnswer(9))");
                 if let url = match.sgfUrl {
                     smart.test(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
+                    smart.walk(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
                 }
             }) {
                 Image(systemName: "number")

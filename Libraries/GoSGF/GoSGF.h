@@ -48,7 +48,8 @@ typedef enum {
 - (BOOL)hasParent;
 - (BOOL)hasChild;
 - (BOOL)hasSibling;
-- (BOOL)inVariation;
+- (BOOL)isMove;
+- (BOOL)isNode;
 
 - (void)gotoRoot;
 - (void)gotoTail;

@@ -57,25 +57,25 @@ struct CloudView: View {
                             Text("A").font(.caption)
                         }.buttonStyle(.borderedProminent)
                         Button(action: {
-                            clickFile(name: file.name, encoding: "EUC-CN")
+                            clickFile(name: file.name, encoding: "GB18030")
                             showiCloud = false
                         }) {
                             Text("简").font(.caption)
                         }.buttonStyle(.borderedProminent)
                         Button(action: {
-                            clickFile(name: file.name, encoding: "EUC-TW")
+                            clickFile(name: file.name, encoding: "BIG5-HKSCS")
                             showiCloud = false
                         }) {
                             Text("繁").font(.caption)
                         }.buttonStyle(.borderedProminent)
                         Button(action: {
-                            clickFile(name: file.name, encoding: "EUC-JP")
+                            clickFile(name: file.name, encoding: "Shift_JIS")
                             showiCloud = false
                         }) {
                             Text("あ").font(.caption)
                         }.buttonStyle(.borderedProminent)
                         Button(action: {
-                            clickFile(name: file.name, encoding: "SEUC-KR")
+                            clickFile(name: file.name, encoding: "CP949")
                             showiCloud = false
                         }) {
                             Text("가").font(.caption)

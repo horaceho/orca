@@ -68,8 +68,13 @@ const int UNI_TR = 0x25B2;
 
 - (void)parseArgs
 {
-    int argc = 2;
-    const char *argv[] = {"-w", "-U"};
+    const int argc = 4;
+    const char *argv[argc] = {
+        "-w",
+        "-d17", // removed empty value
+        "-d40", // property not part of FF[x]
+        "-U",
+    };
     ParseArgs(sgf, argc, argv);
 }
 
@@ -99,93 +104,67 @@ const int UNI_TR = 0x25B2;
 
 - (BOOL)hasParent
 {
-    if (!self.isReady) return NO;
-    return cursor->parent ? YES : NO;
+    return (cursor && cursor->parent) ? YES : NO;
 }
 
 - (BOOL)hasChild
 {
-    if (!self.isReady) return NO;
-    return cursor->child ? YES : NO;
+    return (cursor && cursor->child) ? YES : NO;
 }
 
 - (BOOL)hasSibling
 {
-    if (!self.isReady) return NO;
-    return cursor->sibling ? YES : NO;
+    return (cursor && cursor->sibling) ? YES : NO;
 }
 
-- (BOOL)inVariation
+- (BOOL)isMove
 {
-    if (!self.isReady) return NO;
+    if (!cursor) return NO;
 
-    BOOL inVariation = NO;
-    for (struct Node *node = cursor; node && !inVariation; node = node->parent) {
-        if (node->parent && node->parent->child) {
-            for (struct Node *sibling = node->parent->child->sibling; sibling && !inVariation; sibling = sibling->sibling) {
-                if (sibling == node) {
-                    inVariation = YES;
-                }
-            }
-        }
-    }
-    return inVariation;
+    return (cursor->prop->flags & TYPE_MOVE) ? YES : NO;
+}
+
+- (BOOL)isNode
+{
+    return (cursor != NULL) ? YES : NO;
 }
 
 - (void)gotoRoot
 {
-    if (!self.isReady) return;
-
     cursor = sgf->info->root;
     if (debug) [self printNode:cursor];
 }
 
 - (void)gotoTail
 {
-    if (!self.isReady) return;
-
     struct Node* tail = NULL;
     for (struct Node *node = sgf->info->root; node; node = node->child) {
         tail = node;
     }
-    if (tail) cursor = tail;
+    cursor = tail;
     if (debug) [self printNode:cursor];
 }
 
 - (void)gotoParent
 {
-    if (!self.isReady) return;
-
-    if (cursor == sgf->info->root) return;
-
     cursor = cursor->parent;
     if (debug) [self printNode:cursor];
 }
 
 - (void)gotoChild
 {
-    if (!self.isReady) return;
-
-    if (cursor->child == NULL) return;
-
     cursor = cursor->child;
     if (debug) [self printNode:cursor];
 }
 
 - (void)gotoSibling
 {
-    if (!self.isReady) return;
-
-    if (cursor->sibling == NULL) return;
-
     cursor = cursor->sibling;
     if (debug) [self printNode:cursor];
 }
 
 - (void)exitSibling
 {
-    if (!self.isReady) return;
-
     struct Node* upper = NULL;
     for (struct Node *node = cursor; node && !upper; node = node->parent) {
         if (node->parent && node->parent->child) {
@@ -420,9 +399,7 @@ const int UNI_TR = 0x25B2;
 
 - (void)printNode
 {
-    if (cursor == NULL) {
-        cursor = sgf->info->root;
-    }
+    if (cursor == NULL) return;
     [self printNode:cursor];
 }
 
