@@ -30,13 +30,14 @@ struct ControlView: View {
                 print("9 + 1 = \(addOneGetAnswer(9))");
                 smart.random()
                 if let url = match.sgfUrl {
-                    print(url.path)
-                    sgfInit()
-                    var ok = sgfArgs("encoding", "GB18030")
-                    if (ok) { sgfLoad(url.path) }
-                    if (ok) { ok = sgfParse() }
-                    if (ok) { sgfDump() }
-                    sgfFree()
+                    let sgf = GoSGF()
+                    sgf.setupInfo()
+                    sgf.parseArgs()
+                    sgf.encoding("GB18030")
+                    sgf.openFile(url.path)
+                    sgf.parseSgf()
+                    sgf.printAll()
+                    print("Ready: \(sgf.isReady())")
                 }
             }) {
                 Image(systemName: "number")
