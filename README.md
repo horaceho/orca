@@ -4,6 +4,10 @@
 
 Let's Play [Go](https://en.wikipedia.org/wiki/Go_(game)).
 
+## Credits
+
+-  [SGF Syntax Checker & Converter: SGFC](https://bitbucket.org/arnoh/sgfc/)
+
 ## Copyright
 
 &copy; 2022 [horaceho.com](https://horaceho.com)
