@@ -13,15 +13,17 @@ struct TreeView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack() {
-                ForEach(smart.nodes, id: \.id) { node in
-                    Button(role: .none, action: {
-                        // ...
-                    }) {
-                        Text("\(node.index)")
-                            .padding()
-                    }
-                    .background(.red.opacity(0.1))
-                }
+//                if let game = smart.game {
+//                    ForEach(game.nodes, id: \.id) { node in
+//                        Button(role: .none, action: {
+//                            // ...
+//                        }) {
+//                            Text("\(node.index)")
+//                                .padding()
+//                        }
+//                        .background(.red.opacity(0.1))
+//                    }
+//                }
             }
         }.background(.yellow.opacity(0.1))
     }

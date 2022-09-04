@@ -305,10 +305,34 @@ const int UNI_TR = 0x25B2;
 - (NSString *)property:(GoToken)token
 {
     NSString *property = @"";
-    if ([self isReady]) {
+    if (cursor) {
         property = [self property:cursor token:token];
     }
     return property;
+}
+
+- (NSDictionary *)props
+{
+    NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+
+    if (cursor) {
+        for (struct Property *property = cursor->prop; property; property = property->next) {
+            NSMutableArray *values = [NSMutableArray array];
+            for (struct PropValue *value = property->value; value; value = value->next) {
+                char *value1 = value->value  ? value->value  : "";
+                char *colon  = value->value2 ? ":" : "";
+                char *value2 = value->value2 ? value->value2 : "";
+                NSString *value = [NSString stringWithFormat:@"[%@%@%@]",
+                                  [NSString stringWithUTF8String:value1],
+                                  [NSString stringWithUTF8String:colon],
+                                  [NSString stringWithUTF8String:value2]];
+                [values addObject: value];
+            }
+            [props setObject:values forKey:[NSString stringWithUTF8String:property->idstr]];
+        }
+    }
+
+    return props;
 }
 
 - (NSString *)siblingName
@@ -348,22 +372,15 @@ const int UNI_TR = 0x25B2;
         }
 
         for (struct Property *property = node->prop; property; property = property->next) {
-            char *value1 = property->value->value  ? property->value->value  : "";
-            char *colon  = property->value->value2 ? ":" : "";
-            char *value2 = property->value->value2 ? property->value->value2 : "";
-            printf("%s[%s%s%s] ", property->idstr, value1, colon, value2);
+            printf("%s", property->idstr);
+            for (struct PropValue *value = property->value; value; value = value->next) {
+                char *value1 = value->value  ? value->value  : "";
+                char *colon  = value->value2 ? ":" : "";
+                char *value2 = value->value2 ? value->value2 : "";
+                printf("[%s%s%s]", value1, colon, value2);
+            }
+            printf("\n");
         }
-        printf("\n");
-    }
-}
-
-- (void)printProperty:(struct Property *)property
-{
-    printf("%s: ", property->idstr);
-    for (struct PropValue *value = property->value; value; value = value->next) {
-        if (value->value) printf("%s", value->value);
-        if (value->value2) printf(":%s", value->value2);
-        printf(" ");
     }
 }
 
@@ -390,17 +407,6 @@ const int UNI_TR = 0x25B2;
         printf("\n");
     }
 #endif
-    printf("printNode: Col: %ld Row: %ld Properties: ", node->col, node->row);
-    for (struct Property *property = node->prop; property; property = property->next) {
-        [self printProperty:property];
-    }
-    printf("\n");
-}
-
-- (void)printNode
-{
-    if (cursor == NULL) return;
-    [self printNode:cursor];
 }
 
 - (NSInteger)gameCount

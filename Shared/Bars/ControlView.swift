@@ -31,6 +31,7 @@ struct ControlView: View {
                 if let url = match.sgfUrl {
                     smart.test(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
                     smart.walk(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
+                    smart.list()
                 }
             }) {
                 Image(systemName: "number")

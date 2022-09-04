@@ -29,8 +29,6 @@ typedef enum {
     TokenOV, TokenLT, TokenRG, TokenSC, TokenSE, TokenEL, TokenEX
 } GoToken;
 
-@class DBFile;
-
 @interface GoSGF : NSObject
 {
 }
@@ -59,11 +57,11 @@ typedef enum {
 - (void)exitSibling;
 
 - (NSString *)info;
+- (NSDictionary<NSString*, NSArray<NSString *> *> *)props;
 - (NSString *)property:(GoToken)token;
 - (NSString *)siblingName;
 
 - (void)printAll;
-- (void)printNode;
 
 - (NSInteger)gameCount;
 
