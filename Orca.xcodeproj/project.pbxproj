@@ -70,6 +70,8 @@
 		F5C55CEA28BA07A90099413E /* Orca.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CE828BA07A90099413E /* Orca.swift */; };
 		F5C55CEC28BA0F910099413E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridView.swift */; };
 		F5C55CED28BA0F910099413E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridView.swift */; };
+		F5F1AED228C4C20500351F80 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AED128C4C20500351F80 /* NodeView.swift */; };
+		F5F1AED328C4C20500351F80 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AED128C4C20500351F80 /* NodeView.swift */; };
 		F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +166,7 @@
 		F5C55CE428B9F8CB0099413E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
 		F5C55CEB28BA0F910099413E /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		F5F1AED128C4C20500351F80 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 		F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -362,6 +365,7 @@
 				F52E99FC28BC9D0F007B707E /* ClickView.swift */,
 				F5C55CEB28BA0F910099413E /* GridView.swift */,
 				F52B194028B8794000887617 /* StoneView.swift */,
+				F5F1AED128C4C20500351F80 /* NodeView.swift */,
 				F5B9007B28C1952A00C4A2AE /* TreeView.swift */,
 			);
 			path = Views;
@@ -514,6 +518,7 @@
 				F52B194128B8794000887617 /* StoneView.swift in Sources */,
 				F5B9007C28C1952A00C4A2AE /* TreeView.swift in Sources */,
 				F503ED8928C0806600AC8510 /* strict.c in Sources */,
+				F5F1AED228C4C20500351F80 /* NodeView.swift in Sources */,
 				F5B9007F28C1967F00C4A2AE /* Smart.swift in Sources */,
 				F52E99FD28BC9D0F007B707E /* ClickView.swift in Sources */,
 				F503EDA928C089DF00AC8510 /* options.c in Sources */,
@@ -560,6 +565,7 @@
 				F503EDA228C0818900AC8510 /* util.c in Sources */,
 				F503ED9D28C0818900AC8510 /* properties.c in Sources */,
 				F503EDA028C0818900AC8510 /* execute.c in Sources */,
+				F5F1AED328C4C20500351F80 /* NodeView.swift in Sources */,
 				F57C77D528BF01C2001F762F /* AddOneWapper.cpp in Sources */,
 				F5C55CED28BA0F910099413E /* GridView.swift in Sources */,
 				F503ED9628C0818900AC8510 /* parse.c in Sources */,

@@ -7,24 +7,59 @@
 
 import SwiftUI
 
-class Node: Identifiable {
+class Node: Equatable, Identifiable {
     let id = UUID()
     var props: [String: [String]]?
     var nodes: [Node] = []
+    var index: Int = 0
     weak var parent: Node?
 
+    weak static var cursor: Node?
+
     init(props: [String: [String]]) {
-      self.props = props
+        self.props = props
+    }
+
+    static func ==(lhs: Node, rhs: Node) -> Bool {
+        return lhs.id == rhs.id
     }
 
     func add(child: Node) {
         nodes.append(child)
         child.parent = self
     }
+
+    func text() -> String {
+        return index > 0 ? "\(index)" : "·"
+    }
+
+    func setCursor() {
+        Node.cursor = self
+    }
+
+//    func gotoHere() {
+//        Node.cursor = self
+//    }
+//
+//    func gotoHead() {
+//        Node.cursor = nodes.first
+//    }
+//
+//    func gotoTail() {
+//        Node.cursor = nodes.last
+//    }
+
+    func properties() -> [String: [String]]? {
+        if let props = props {
+            return props
+        }
+        return nil
+    }
 }
 
 class Smart: ObservableObject {
     @Published var game: Node?
+    @Published var node: Node?
 
     func alphabet() -> String {
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -46,17 +81,20 @@ class Smart: ObservableObject {
         sgf.openFile(filename)
         sgf.parseSgf()
         sgf.gotoRoot()
-        let temp = Node(props: sgf.props())
+        let root = Node(props: sgf.props())
         sgf.gotoChild()
         while (sgf.isNode()) {
+            let temp = Node(props: sgf.props())
             if (sgf.isMove()) {
                 count += 1
+                temp.index = count
             }
-            let node = Node(props: sgf.props())
-            temp.add(child: node)
+            root.add(child: temp)
             sgf.gotoChild()
         }
-        game = temp
+        game = root
+        node = game
+
         print("Moves: \(count)")
     }
 

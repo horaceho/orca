@@ -22,7 +22,7 @@ struct ContentView: View {
                     }.frame(width: geometry.size.height, height:geometry.size.height)
                     Spacer()
                     VStack() {
-                        HelloView()
+                        NodeView()
                         Spacer()
                         TreeView()
                         ControlView()
@@ -36,7 +36,7 @@ struct ContentView: View {
                      // GridView()
                         StoneView()
                     }.frame(width: geometry.size.width, height:geometry.size.width)
-                    HelloView()
+                    NodeView()
                     Spacer()
                     TreeView()
                     ControlView()
