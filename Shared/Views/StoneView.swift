@@ -59,9 +59,9 @@ struct StoneView: View {
                                         match.clickStone(index: index)
                                     }
                             } else {
-                                Rectangle()
-                                    .fill(.clear)
+                                Color.clear
                                     .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
+                                    .contentShape(Rectangle())
                                     .onTapGesture {
                                         match.clickStone(index: index)
                                     }
