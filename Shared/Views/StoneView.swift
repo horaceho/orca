@@ -50,13 +50,22 @@ struct StoneView: View {
                         }
                     LazyVGrid(columns: columns, spacing: gridSpace) {
                         ForEach(0..<361) { index in
-                            Image(match.images[match.stones[index]])
-                                .resizable()
-                                .shadow(color: .black.opacity(0.5), radius: 1.75, x: -1.5, y: 1.25)
-                                .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
-                                .onTapGesture {
-                                    match.clickStone(index: index)
-                                }
+                            if (match.stones[index] > 0) {
+                                Image(match.images[match.stones[index]])
+                                    .resizable()
+                                    .shadow(color: .black.opacity(0.5), radius: 1.75, x: -1.5, y: 1.25)
+                                    .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
+                                    .onTapGesture {
+                                        match.clickStone(index: index)
+                                    }
+                            } else {
+                                Rectangle()
+                                    .fill(.clear)
+                                    .frame(minWidth: gridSize, maxWidth: gridSize, minHeight: gridSize, maxHeight: gridSize)
+                                    .onTapGesture {
+                                        match.clickStone(index: index)
+                                    }
+                            }
                         }
                     }.frame(width: fullSize-gridSize, height: fullSize-gridSize, alignment: .center)
                     Rectangle()
