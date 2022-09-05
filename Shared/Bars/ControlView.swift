@@ -29,9 +29,13 @@ struct ControlView: View {
             Button(role: .none, action: {
                 print("9 + 1 = \(addOneGetAnswer(9))");
                 if let url = match.sgfUrl {
-                    smart.test(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
+                 // smart.test(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
                     smart.walk(filename: url.path, encoding: match.sgfEncoding ?? "UTF-8")
                     smart.list()
+                    smart.gotoRoot()
+                    if let board = smart.board() {
+                        match.stones = board
+                    }
                 }
             }) {
                 Image(systemName: "number")

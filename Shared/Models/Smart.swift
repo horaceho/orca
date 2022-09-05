@@ -12,6 +12,7 @@ class Node: Equatable, Identifiable {
     var props: [String: [String]]?
     var nodes: [Node] = []
     var index: Int = 0
+    var board: [Int] = []
     weak var parent: Node?
 
     weak static var cursor: Node?
@@ -31,6 +32,16 @@ class Node: Equatable, Identifiable {
 
     func text() -> String {
         return index > 0 ? "\(index)" : "·"
+    }
+
+    func setBoard(stones: [NSNumber]) {
+        board = []
+        let count = stones.count
+        print("setBoard \(count)")
+        for stone in stones {
+            let value = stone.intValue
+            board.append(value)
+        }
     }
 
     func setCursor() {
@@ -60,11 +71,16 @@ class Node: Equatable, Identifiable {
 class Smart: ObservableObject {
     @Published var game: Node?
     @Published var node: Node?
+    let sgf = GoSGF()
 
     func alphabet() -> String {
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let letter = String((0..<1).map{ _ in letters.randomElement()! })
         return letter
+    }
+
+    func board() -> [Int]? {
+        return node?.board
     }
 
     func random() {
@@ -74,7 +90,6 @@ class Smart: ObservableObject {
 
     func walk(filename: String, encoding: String) {
         var count = 0
-        let sgf = GoSGF()
         sgf.setupInfo()
         sgf.parseArgs()
         sgf.encoding(encoding)
@@ -82,9 +97,11 @@ class Smart: ObservableObject {
         sgf.parseSgf()
         sgf.gotoRoot()
         let root = Node(props: sgf.props())
+        root.setBoard(stones: sgf.board())
         sgf.gotoChild()
         while (sgf.isNode()) {
             let temp = Node(props: sgf.props())
+            temp.setBoard(stones: sgf.board())
             if (sgf.isMove()) {
                 count += 1
                 temp.index = count
@@ -137,12 +154,19 @@ class Smart: ObservableObject {
     }
 
     func test(filename: String, encoding: String) {
-        let sgf = GoSGF()
         sgf.setupInfo()
         sgf.parseArgs()
         sgf.encoding(encoding)
         sgf.openFile(filename)
         sgf.parseSgf()
         sgf.printAll()
+    }
+
+    func gotoRoot() {
+        node = game
+    }
+
+    func gotoNode(here: Node) {
+        node = here
     }
 }

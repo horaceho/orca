@@ -57,9 +57,9 @@ typedef enum {
 - (void)exitSibling;
 
 - (NSString *)info;
-- (NSDictionary<NSString*, NSArray<NSString *> *> *)props;
-- (NSString *)property:(GoToken)token;
-- (NSString *)siblingName;
+- (NSDictionary<NSString *, NSArray<NSString *> *> *)props;
+- (NSArray<NSNumber *> *)board;
+- (NSArray<NSNumber *> *)marks;
 
 - (void)printAll;
 

@@ -133,7 +133,7 @@ const int UNI_TR = 0x25B2;
 - (void)gotoRoot
 {
     cursor = sgf->info->root;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (void)gotoTail
@@ -143,25 +143,25 @@ const int UNI_TR = 0x25B2;
         tail = node;
     }
     cursor = tail;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (void)gotoParent
 {
     cursor = cursor->parent;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (void)gotoChild
 {
     cursor = cursor->child;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (void)gotoSibling
 {
     cursor = cursor->sibling;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (void)exitSibling
@@ -177,7 +177,7 @@ const int UNI_TR = 0x25B2;
         }
     }
     if (upper) cursor = upper;
-    if (debug) [self printNode:cursor];
+    if (debug) [self printBoard:cursor];
 }
 
 - (NSString *)info
@@ -272,45 +272,6 @@ const int UNI_TR = 0x25B2;
     return info;
 }
 
-- (struct Property *)findProperty:(struct Node *)node token:(GoToken)token
-{
-    struct Property *p = NULL;
-    for (struct Property *property = node->prop; property; property = property->next) {
-        if (token == (GoToken) property->ident) {
-            p = property;
-        }
-    }
-    return p;
-}
-
-- (NSString *)property:(struct Node *)node token:(GoToken)token
-{
-    char asciiValue[1024*16];
-    int valueLength = 0;
-    struct Property *property = [self findProperty:node token:token];
-    if (property) {
-        char *value1 = property->value->value  ? property->value->value  : "";
-        char *colon  = property->value->value2 ? ":" : "";
-        char *value2 = property->value->value2 ? property->value->value2 : "";
-        valueLength = snprintf(asciiValue, sizeof(asciiValue), "%s%s%s", value1, colon, value2);
-        asciiValue[sizeof(asciiValue)-1] = '\0';
-    }
-    NSString *keyString = nil;
-    if (valueLength > 0) {
-        keyString = [[NSString alloc] initWithBytes:asciiValue length:valueLength encoding:NSUTF8StringEncoding];
-    }
-    return keyString;
-}
-
-- (NSString *)property:(GoToken)token
-{
-    NSString *property = @"";
-    if (cursor) {
-        property = [self property:cursor token:token];
-    }
-    return property;
-}
-
 - (NSDictionary *)props
 {
     NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
@@ -335,27 +296,28 @@ const int UNI_TR = 0x25B2;
     return props;
 }
 
-- (NSString *)siblingName
+- (NSArray<NSNumber *> *)board
 {
-    if (!self.isReady) return @"";
-
-    NSString *siblingName = nil;
-    if (cursor->sibling) {
-        siblingName = [self property:cursor->sibling token:TokenN]; // node name
-        siblingName = [siblingName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        if (siblingName.length == 0) {
-         /*
-            siblingName = [self property:cursor->sibling token:TokenC]; // comment
-            if (siblingName.length == 0) {
-                siblingName = @"...";
-            } else if (siblingName.length > 8) {
-                siblingName = [NSString stringWithFormat:@"%@...", [siblingName substringToIndex:8]];
+    NSMutableArray *board = [NSMutableArray array];
+    if (cursor) {
+        unsigned int area = (unsigned int)(cursor->status->bwidth * cursor->status->bheight);
+        for (unsigned int index = 0; index < area; index++) {
+            unsigned char color = cursor->status->board[index];
+            switch(color) {
+                case BLACK: [board addObject:[NSNumber numberWithInteger:1]]; break;
+                case WHITE: [board addObject:[NSNumber numberWithInteger:2]]; break;
+                default: [board addObject:[NSNumber numberWithInteger:0]];
             }
-         */
-            siblingName = NSLocalizedString(@"Variation", nil);
         }
     }
-    return siblingName;
+    return board;
+}
+
+- (NSArray<NSNumber *> *)marks
+{
+    NSMutableArray *marks = [NSMutableArray array];
+
+    return marks;
 }
 
 - (void)printAll
@@ -381,24 +343,26 @@ const int UNI_TR = 0x25B2;
             }
             printf("\n");
         }
+
+        [self printBoard:node];
+        [self printMarkup:node];
     }
 }
 
-- (void)printNode:(struct Node *)node
+- (void)printBoard:(struct Node *)node
 {
-#undef PRINT_BOARD
-#ifdef PRINT_BOARD
     if (node->status) {
         for (int row = 0; row < sgf->info->bheight; row++) {
             for (int col = 0; col < sgf->info->bwidth; col++) {
                 size_t index = row * node->status->bwidth + col;
                 unsigned char color = node->status->board[index];
-                char *grid = ". ";
+                char *grid = NULL;
                 switch(color)
                 {
-                    case EMPTY: break;
-                    case BLACK: grid = "B "; break;
-                    case WHITE: grid = "W "; break;
+                    case EMPTY: grid = " ."; break;
+                    case BLACK: grid = " B"; break;
+                    case WHITE: grid = " W"; break;
+                    default: grid = " .";
                 }
                 printf("%s", grid);
             }
@@ -406,7 +370,27 @@ const int UNI_TR = 0x25B2;
         }
         printf("\n");
     }
-#endif
+}
+
+- (void)printMarkup:(struct Node *)node
+{
+    if (node->status) {
+        for (int row = 0; row < sgf->info->bheight; row++) {
+            for (int col = 0; col < sgf->info->bwidth; col++) {
+                size_t index = row * node->status->bwidth + col;
+                unsigned short mark = node->status->markup[index];
+                char buffer[16];
+                if (mark != 0) {
+                    sprintf(buffer, "%2d", mark);
+                } else {
+                    strcpy(buffer, " .");
+                }
+                printf("%s", buffer);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
 }
 
 - (NSInteger)gameCount

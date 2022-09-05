@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TreeView: View {
+    @EnvironmentObject var match: Match
     @EnvironmentObject var smart: Smart
 
     var body: some View {
@@ -16,7 +17,10 @@ struct TreeView: View {
                 if let game = smart.game {
                     ForEach(game.nodes, id: \.id) { node in
                         Button(role: .none, action: {
-                            // ...
+                            smart.gotoNode(here: node)
+                            if let board = smart.board() {
+                                match.stones = board
+                            }
                         }) {
                             Text(node.text())
                                 .padding()
