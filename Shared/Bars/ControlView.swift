@@ -52,12 +52,15 @@ struct ControlView: View {
                                idealHeight: 720.0)
                 }
             Button(role: .none, action: {
-                showConfig = true
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+             // showConfig = true
             }) {
                 Image(systemName: "gearshape")
             }.padding(.horizontal)
                 .popover(isPresented: $showConfig) {
-                    ConfigView(showConfig: $showConfig)
+                    //
                 }
             Button(role: match.trashRole(), action: {
                 match.clickTrash()

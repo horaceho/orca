@@ -13,11 +13,17 @@ struct BoardView: View {
     var body: some View {
         GeometryReader { (geometry) in
             let fullSize = min(geometry.size.width, geometry.size.height)
-            Image(match.boardImage())
+            Image(match.board)
                 .resizable()
                 .frame(width: fullSize, height: fullSize, alignment: .center)
                 .rotationEffect(.degrees(match.angle))
                 .shadow(color: .black.opacity(0.5), radius: 1.75, x: -1.5, y: 1.25)
+        }
+        .onAppear {
+            //
+        }
+        .onDisappear {
+            //
         }
     }
 }

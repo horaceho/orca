@@ -10,7 +10,7 @@ import SwiftUI
 class Match: ObservableObject {
     @Published var count: Int = 0
     @Published var trash: Int = 0
-    @Published var board: Int = 0
+    @Published var board: String = "Darker"
     @Published var angle: Double = 0.0
     @Published var color: Int = Orca.BLACK
     @Published var turns: Int = Orca.TOGGLE
@@ -21,11 +21,6 @@ class Match: ObservableObject {
         "Stone-Book-Blank",
         "Stone-Book-Black",
         "Stone-Book-White",
-    ]
-
-    @Published var boards: [String] = [
-        "Board-Darker",
-        "Board-Lighter",
     ]
 
     @Published var stones: [Int] = // Array(repeating: 0, count: 361)
@@ -62,7 +57,6 @@ class Match: ObservableObject {
 
     init() {
         count = UserDefaults.standard.object(forKey: "Orca.count") as? Int ?? 0
-        board = UserDefaults.standard.object(forKey: "Orca.board") as? Int ?? 0
         angle = UserDefaults.standard.object(forKey: "Orca.angle") as? Double ?? 0.0
         color = UserDefaults.standard.object(forKey: "Orca.color") as? Int ?? Orca.BLACK
         turns = UserDefaults.standard.object(forKey: "Orca.turns") as? Int ?? Orca.TOGGLE
@@ -96,6 +90,20 @@ class Match: ObservableObject {
         clicks.removeAll()
     }
 
+    func active() {
+        if let image = UserDefaults.standard.object(forKey: "Orca.board") as? String? ?? "Darker" {
+            board = image
+        }
+    }
+
+    func inactive() {
+        //
+    }
+
+    func background() {
+        //
+    }
+
     func click(index: Int) {
         if (stones[index] == Orca.EMPTY) {
             stones[index] = color
@@ -110,20 +118,6 @@ class Match: ObservableObject {
                 whiteDead += 1
             }
             stones[index] = Orca.EMPTY
-        }
-    }
-
-    func clickBoard(index: Int) {
-        if (board == index) {
-            angle += 90.0
-            if (angle > 270.0) {
-                angle = 0.0
-            }
-            UserDefaults.standard.set(angle, forKey: "Orca.angle")
-        } else {
-            board = index
-            angle = 0.0
-            UserDefaults.standard.set(board, forKey: "Orca.board")
         }
     }
 
@@ -171,9 +165,5 @@ class Match: ObservableObject {
         } else {
             return color == Orca.BLACK ? "circle.filled" : "circle"
         }
-    }
-
-    func boardImage() -> String {
-        return boards[board]
     }
 }

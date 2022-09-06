@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.scenePhase) var scenePhase
     @StateObject var match = Match()
     @StateObject var smart = Smart()
 
@@ -46,6 +47,15 @@ struct ContentView: View {
         }
         .environmentObject(match)
         .environmentObject(smart)
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                match.active()
+            } else if newPhase == .inactive {
+                match.inactive()
+            } else if newPhase == .background {
+                match.background()
+            }
+        }
     }
 }
 

@@ -58,6 +58,7 @@
 		F57C77D728BF01C2001F762F /* AddOne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57C77D228BF01C2001F762F /* AddOne.cpp */; };
 		F57C77DE28BF1C75001F762F /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57C77DD28BF1C75001F762F /* CloudView.swift */; };
 		F57C77E328BF1F9A001F762F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57C77E228BF1F9A001F762F /* CloudKit.framework */; };
+		F59CB76428C734FA009235B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F59CB76328C734FA009235B7 /* Settings.bundle */; };
 		F5B9007C28C1952A00C4A2AE /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007B28C1952A00C4A2AE /* TreeView.swift */; };
 		F5B9007D28C1952A00C4A2AE /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007B28C1952A00C4A2AE /* TreeView.swift */; };
 		F5B9007F28C1967F00C4A2AE /* Smart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B9007E28C1967F00C4A2AE /* Smart.swift */; };
@@ -72,7 +73,6 @@
 		F5C55CED28BA0F910099413E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C55CEB28BA0F910099413E /* GridView.swift */; };
 		F5F1AED228C4C20500351F80 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AED128C4C20500351F80 /* NodeView.swift */; };
 		F5F1AED328C4C20500351F80 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1AED128C4C20500351F80 /* NodeView.swift */; };
-		F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +158,7 @@
 		F57C77DD28BF1C75001F762F /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
 		F57C77E028BF1F96001F762F /* Orca (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Orca (iOS).entitlements"; sourceTree = "<group>"; };
 		F57C77E228BF1F9A001F762F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		F59CB76328C734FA009235B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F5B9007B28C1952A00C4A2AE /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		F5B9007E28C1967F00C4A2AE /* Smart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart.swift; sourceTree = "<group>"; };
 		F5B9008828C1D25000C4A2AE /* GoSGF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoSGF.h; sourceTree = "<group>"; };
@@ -167,7 +168,6 @@
 		F5C55CE828BA07A90099413E /* Orca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orca.swift; sourceTree = "<group>"; };
 		F5C55CEB28BA0F910099413E /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		F5F1AED128C4C20500351F80 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
-		F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +297,7 @@
 				F5C55CE228B9F2290099413E /* README.md */,
 				F57C77D828BF199A001F762F /* Orca--iOS--Info.plist */,
 				F57C77E028BF1F96001F762F /* Orca (iOS).entitlements */,
+				F59CB76328C734FA009235B7 /* Settings.bundle */,
 				F52B192128B876B800887617 /* Shared */,
 				F57C77E128BF1F9A001F762F /* Frameworks */,
 				F57C778228BEF47F001F762F /* Libraries */,
@@ -405,7 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				F57C77DD28BF1C75001F762F /* CloudView.swift */,
-				F5F76E1A28BCCDA6006E1ABF /* ConfigView.swift */,
 			);
 			path = Pops;
 			sourceTree = "<group>";
@@ -491,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59CB76428C734FA009235B7 /* Settings.bundle in Resources */,
 				F52B193628B876B800887617 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +514,6 @@
 				F57C77D428BF01C2001F762F /* AddOneWapper.cpp in Sources */,
 				F503ED8F28C0806600AC8510 /* error.c in Sources */,
 				F5B9008A28C1D25000C4A2AE /* GoSGF.m in Sources */,
-				F5F76E1B28BCCDA6006E1ABF /* ConfigView.swift in Sources */,
 				F503ED9128C0806600AC8510 /* save.c in Sources */,
 				F52B194128B8794000887617 /* StoneView.swift in Sources */,
 				F5B9007C28C1952A00C4A2AE /* TreeView.swift in Sources */,
